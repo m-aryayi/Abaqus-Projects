@@ -1,0 +1,22 @@
+# Save by mammad on 2022_04_04-19.52.01; build 2019 2018_09_24-22.11.51 157541
+from abaqus import *
+upgradeMdb(
+    'C:/Users/mammad/Desktop/forooravandeh - peyman aghdasi/indentation/model/indentaion-6.14-2.cae'
+    , 
+    'C:/Users/mammad/Desktop/forooravandeh - peyman aghdasi/indentation/model/indentaion.cae')
+# Save by mammad on 2022_04_04-19.52.01; build 2019 2018_09_24-22.11.51 157541
+from part import *
+from material import *
+from section import *
+from optimization import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+del mdb.jobs['Job-1']
+# Save by mammad on 2022_04_04-22.09.35; build 2019 2018_09_24-22.11.51 157541
