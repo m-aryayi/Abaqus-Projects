@@ -1,0 +1,1611 @@
+# -*- coding: mbcs -*-
+from abaqus import *
+upgradeMdb(
+    'C:/Users/mammad/Desktop/zhou2016subr/New folder/New folder/Model-Zhou-6.14-2.cae'
+    , 
+    'C:/Users/mammad/Desktop/zhou2016subr/New folder/New folder/Model-Zhou.cae')
+# Save by mammad on 2022_04_05-15.06.25; build 2019 2018_09_24-22.11.51 157541
+from part import *
+from material import *
+from section import *
+from optimization import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+del mdb.models['Model-2-Copy2'].materials['Material-2']
+mdb.models['Model-2'].materials.changeKey(fromName='Material-1', toName=
+    'Material-test')
+mdb.models['Model-2'].materials.changeKey(fromName='Material-1-Copy', toName=
+    'Material-Ref')
+mdb.models.changeKey(fromName='Model-2', toName='Model-1')
+mdb.models.changeKey(fromName='Model-2-Copy2', toName='Model-2')
+mdb.models['Model-1'].steps.changeKey(fromName='Step-1', toName='Loading')
+mdb.models['Model-1'].steps.changeKey(fromName='Step-2', toName='Unloading')
+mdb.models.changeKey(fromName='Model-1', toName='Model-Ref')
+del mdb.models['Model-2']
+del mdb.jobs['Job-1']
+del mdb.jobs['Job-2']
+del mdb.jobs['Job-3']
+del mdb.jobs['Job-4']
+del mdb.jobs['Job-5']
+del mdb.jobs['Job-6']
+del mdb.jobs['Job-7']
+mdb.Job(atTime=None, contactPrint=OFF, description='', echoPrint=OFF, 
+    explicitPrecision=SINGLE, getMemoryFromAnalysis=True, historyPrint=OFF, 
+    memory=90, memoryUnits=PERCENTAGE, model='Model-Ref', modelPrint=OFF, 
+    multiprocessingMode=DEFAULT, name='Job-Validation', nodalOutputPrecision=
+    SINGLE, numCpus=1, numGPUs=0, queue=None, resultsFormat=ODB, scratch='', 
+    type=ANALYSIS, userSubroutine=
+    'C:\\Users\\mammad\\Desktop\\Zhou_et_al_2017\\USDFLD_CapModel.for', 
+    waitHours=0, waitMinutes=0)
+mdb.jobs['Job-Validation'].submit(consistencyChecking=OFF)
+mdb.jobs['Job-Validation']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'DESKTOP-MESBJLV', 'handle': 0, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'in keyword *SOLIDSECTION, file "Job-Validation.inp", line 6883: Material with the name "MATERIAL-1-COPY" has not been defined in the model.', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(ERROR, {'phase': BATCHPRE_PHASE, 
+    'message': 'THERE IS NO MATERIAL BY THE NAME MATERIAL-1-COPY', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(ERROR, {'phase': BATCHPRE_PHASE, 
+    'message': '3072 elements have missing property definitions. The elements have been identified in element set ErrElemMissingSection.', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT VARIABLE SDV HAS NO COMPONENTS IN THIS ANALYSIS FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PE IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQ IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEQC IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST S IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST LE IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT VARIABLE SDV HAS NO COMPONENTS IN THIS ANALYSIS FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PE IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQ IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEQC IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST S IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST LE IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT VARIABLE SDV HAS NO COMPONENTS IN THIS ANALYSIS FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PE IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQ IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEQC IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST S IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST LE IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT VARIABLE SDV HAS NO COMPONENTS IN THIS ANALYSIS FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PE IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQ IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEQC IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST S IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST LE IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT VARIABLE SDV HAS NO COMPONENTS IN THIS ANALYSIS FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PE IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQ IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEQC IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST S IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST LE IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT VARIABLE SDV HAS NO COMPONENTS IN THIS ANALYSIS FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PE IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQ IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEQC IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST S IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST LE IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT VARIABLE SDV HAS NO COMPONENTS IN THIS ANALYSIS FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PE IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQ IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEQC IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST S IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST LE IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT VARIABLE SDV HAS NO COMPONENTS IN THIS ANALYSIS FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PE IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQ IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEQC IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST S IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST LE IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'YIELD STRESS IS TOO LOW, THE CAP WOULD BE IN TENSION SPACE WHEN PB=4.33300E+05, COHESION= 1.21884E+06, BETA=70.533, R=0.44120', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'YIELD STRESS IS TOO LOW, THE CAP WOULD BE IN TENSION SPACE WHEN PB=4.33300E+05, COHESION= 1.80383E+06, BETA=70.375, R=0.45155', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'YIELD STRESS IS TOO LOW, THE CAP WOULD BE IN TENSION SPACE WHEN PB=4.33300E+05, COHESION= 2.66958E+06, BETA=70.186, R=0.46308', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'YIELD STRESS IS TOO LOW, THE CAP WOULD BE IN TENSION SPACE WHEN PB=4.33300E+05, COHESION= 3.95085E+06, BETA=69.959, R=0.47593', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'YIELD STRESS IS TOO LOW, THE CAP WOULD BE IN TENSION SPACE WHEN PB=4.33300E+05, COHESION= 5.84706E+06, BETA=69.690, R=0.49023', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'YIELD STRESS IS TOO LOW, THE CAP WOULD BE IN TENSION SPACE WHEN PB=4.33300E+05, COHESION= 8.65338E+06, BETA=69.373, R=0.50615', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'YIELD STRESS IS TOO LOW, THE CAP WOULD BE IN TENSION SPACE WHEN PB=4.33300E+05, COHESION= 1.28066E+07, BETA=69.002, R=0.52388', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'THE *USER DEFINED FIELD OPTION HAS BEEN USED WITH THE STATEV ARRAY DIMENSIONED TO ZERO SINCE THE *DEPVAR OPTION IS NOT USED WITH THIS MATERIAL. CONSEQUENTLY, DEFINING STATEV ENTRIES IN USDFLD WILL CAUSE CODE EXECUTION ERRORS.', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(ODB_FILE, {'phase': BATCHPRE_PHASE, 
+    'file': 'C:\\Users\\mammad\\Desktop\\Zhou_et_al_2017\\Job-Validation.odb', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(ABORTED, {'phase': BATCHPRE_PHASE, 
+    'message': 'Analysis phase failed due to errors', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(ERROR, {
+    'message': 'Analysis Input File Processor exited with an error.', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(JOB_ABORTED, {
+    'message': 'Analysis Input File Processor exited with an error.', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation'].submit(consistencyChecking=OFF)
+mdb.jobs['Job-Validation']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'DESKTOP-MESBJLV', 'handle': 0, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'in keyword *SOLIDSECTION, file "Job-Validation.inp", line 6883: Material with the name "MATERIAL-1-COPY" has not been defined in the model.', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(ERROR, {'phase': BATCHPRE_PHASE, 
+    'message': 'THERE IS NO MATERIAL BY THE NAME MATERIAL-1-COPY', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(ERROR, {'phase': BATCHPRE_PHASE, 
+    'message': '3072 elements have missing property definitions. The elements have been identified in element set ErrElemMissingSection.', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT VARIABLE SDV HAS NO COMPONENTS IN THIS ANALYSIS FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PE IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQ IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEQC IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST S IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST LE IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT VARIABLE SDV HAS NO COMPONENTS IN THIS ANALYSIS FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PE IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQ IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEQC IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST S IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST LE IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT VARIABLE SDV HAS NO COMPONENTS IN THIS ANALYSIS FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PE IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQ IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEQC IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST S IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST LE IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT VARIABLE SDV HAS NO COMPONENTS IN THIS ANALYSIS FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PE IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQ IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEQC IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST S IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST LE IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT VARIABLE SDV HAS NO COMPONENTS IN THIS ANALYSIS FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PE IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQ IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEQC IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST S IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST LE IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT VARIABLE SDV HAS NO COMPONENTS IN THIS ANALYSIS FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PE IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQ IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEQC IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST S IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST LE IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT VARIABLE SDV HAS NO COMPONENTS IN THIS ANALYSIS FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PE IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQ IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEQC IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST S IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST LE IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT VARIABLE SDV HAS NO COMPONENTS IN THIS ANALYSIS FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PE IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQ IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEQC IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST S IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST LE IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'YIELD STRESS IS TOO LOW, THE CAP WOULD BE IN TENSION SPACE WHEN PB=4.33300E+05, COHESION= 1.21884E+06, BETA=70.533, R=0.44120', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'YIELD STRESS IS TOO LOW, THE CAP WOULD BE IN TENSION SPACE WHEN PB=4.33300E+05, COHESION= 1.80383E+06, BETA=70.375, R=0.45155', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'YIELD STRESS IS TOO LOW, THE CAP WOULD BE IN TENSION SPACE WHEN PB=4.33300E+05, COHESION= 2.66958E+06, BETA=70.186, R=0.46308', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'YIELD STRESS IS TOO LOW, THE CAP WOULD BE IN TENSION SPACE WHEN PB=4.33300E+05, COHESION= 3.95085E+06, BETA=69.959, R=0.47593', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'YIELD STRESS IS TOO LOW, THE CAP WOULD BE IN TENSION SPACE WHEN PB=4.33300E+05, COHESION= 5.84706E+06, BETA=69.690, R=0.49023', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'YIELD STRESS IS TOO LOW, THE CAP WOULD BE IN TENSION SPACE WHEN PB=4.33300E+05, COHESION= 8.65338E+06, BETA=69.373, R=0.50615', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'YIELD STRESS IS TOO LOW, THE CAP WOULD BE IN TENSION SPACE WHEN PB=4.33300E+05, COHESION= 1.28066E+07, BETA=69.002, R=0.52388', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'THE *USER DEFINED FIELD OPTION HAS BEEN USED WITH THE STATEV ARRAY DIMENSIONED TO ZERO SINCE THE *DEPVAR OPTION IS NOT USED WITH THIS MATERIAL. CONSEQUENTLY, DEFINING STATEV ENTRIES IN USDFLD WILL CAUSE CODE EXECUTION ERRORS.', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(ODB_FILE, {'phase': BATCHPRE_PHASE, 
+    'file': 'C:\\Users\\mammad\\Desktop\\Zhou_et_al_2017\\Job-Validation.odb', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(ABORTED, {'phase': BATCHPRE_PHASE, 
+    'message': 'Analysis phase failed due to errors', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(ERROR, {
+    'message': 'Analysis Input File Processor exited with an error.', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(JOB_ABORTED, {
+    'message': 'Analysis Input File Processor exited with an error.', 
+    'jobName': 'Job-Validation'})
+mdb.models['Model-Ref'].sections['Section-1'].setValues(material='Material-Ref'
+    , thickness=None)
+mdb.jobs['Job-Validation'].submit(consistencyChecking=OFF)
+mdb.jobs['Job-Validation']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'DESKTOP-MESBJLV', 'handle': 0, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT VARIABLE SDV HAS NO COMPONENTS IN THIS ANALYSIS FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PE IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQ IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEQC IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST S IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST LE IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT VARIABLE SDV HAS NO COMPONENTS IN THIS ANALYSIS FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PE IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQ IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEQC IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST S IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST LE IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT VARIABLE SDV HAS NO COMPONENTS IN THIS ANALYSIS FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PE IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQ IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEQC IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST S IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST LE IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT VARIABLE SDV HAS NO COMPONENTS IN THIS ANALYSIS FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PE IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQ IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEQC IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST S IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST LE IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT VARIABLE SDV HAS NO COMPONENTS IN THIS ANALYSIS FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PE IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQ IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEQC IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST S IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST LE IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT VARIABLE SDV HAS NO COMPONENTS IN THIS ANALYSIS FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PE IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQ IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEQC IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST S IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST LE IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'YIELD STRESS IS TOO LOW, THE CAP WOULD BE IN TENSION SPACE WHEN PB=4.33300E+05, COHESION= 1.21884E+06, BETA=70.533, R=0.44120', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'YIELD STRESS IS TOO LOW, THE CAP WOULD BE IN TENSION SPACE WHEN PB=4.33300E+05, COHESION= 1.80383E+06, BETA=70.375, R=0.45155', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'YIELD STRESS IS TOO LOW, THE CAP WOULD BE IN TENSION SPACE WHEN PB=4.33300E+05, COHESION= 2.66958E+06, BETA=70.186, R=0.46308', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'YIELD STRESS IS TOO LOW, THE CAP WOULD BE IN TENSION SPACE WHEN PB=4.33300E+05, COHESION= 3.95085E+06, BETA=69.959, R=0.47593', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'YIELD STRESS IS TOO LOW, THE CAP WOULD BE IN TENSION SPACE WHEN PB=4.33300E+05, COHESION= 5.84706E+06, BETA=69.690, R=0.49023', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'YIELD STRESS IS TOO LOW, THE CAP WOULD BE IN TENSION SPACE WHEN PB=4.33300E+05, COHESION= 8.65338E+06, BETA=69.373, R=0.50615', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'YIELD STRESS IS TOO LOW, THE CAP WOULD BE IN TENSION SPACE WHEN PB=4.33300E+05, COHESION= 1.28066E+07, BETA=69.002, R=0.52388', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'THE *USER DEFINED FIELD OPTION HAS BEEN USED WITH THE STATEV ARRAY DIMENSIONED TO ZERO SINCE THE *DEPVAR OPTION IS NOT USED WITH THIS MATERIAL. CONSEQUENTLY, DEFINING STATEV ENTRIES IN USDFLD WILL CAUSE CODE EXECUTION ERRORS.', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(ODB_FILE, {'phase': BATCHPRE_PHASE, 
+    'file': 'C:\\Users\\mammad\\Desktop\\Zhou_et_al_2017\\Job-Validation.odb', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(COMPLETED, {'phase': BATCHPRE_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STARTED, {'phase': STANDARD_PHASE, 
+    'clientHost': 'DESKTOP-MESBJLV', 'handle': 11696, 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STEP, {'phase': STANDARD_PHASE, 
+    'stepId': 1, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 0, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'THERE ARE 2 UNCONNECTED REGIONS IN THE MODEL.', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(MEMORY_ESTIMATE, {'phase': STANDARD_PHASE, 
+    'jobName': 'Job-Validation', 'memory': 115.0})
+mdb.jobs['Job-Validation']._Message(PHYSICAL_MEMORY, {'phase': STANDARD_PHASE, 
+    'physical_memory': 8094.0, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(MINIMUM_MEMORY, {'minimum_memory': 52.0, 
+    'phase': STANDARD_PHASE, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'There is zero MOMENT everywhere in the model based on the default criterion. please check the value of the average MOMENT during the current iteration to verify that the MOMENT is small enough to be treated as zero. if not, please use the solution controls to reset the criterion for zero MOMENT.', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 1, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 0.01, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 1, 'stepTime': 0.01, 'step': 1, 
+    'jobName': 'Job-Validation', 'severe': 1, 'iterations': 1, 
+    'phase': STANDARD_PHASE, 'equilibrium': 0})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'There is zero MOMENT everywhere in the model based on the default criterion. please check the value of the average MOMENT during the current iteration to verify that the MOMENT is small enough to be treated as zero. if not, please use the solution controls to reset the criterion for zero MOMENT.', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 2, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 0.02, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 2, 'stepTime': 0.02, 'step': 1, 
+    'jobName': 'Job-Validation', 'severe': 1, 'iterations': 1, 
+    'phase': STANDARD_PHASE, 'equilibrium': 0})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'There is zero MOMENT everywhere in the model based on the default criterion. please check the value of the average MOMENT during the current iteration to verify that the MOMENT is small enough to be treated as zero. if not, please use the solution controls to reset the criterion for zero MOMENT.', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 3, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 0.035, 'attempts': 1, 
+    'timeIncrement': 0.015, 'increment': 3, 'stepTime': 0.035, 'step': 1, 
+    'jobName': 'Job-Validation', 'severe': 1, 'iterations': 1, 
+    'phase': STANDARD_PHASE, 'equilibrium': 0})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'There is zero MOMENT everywhere in the model based on the default criterion. please check the value of the average MOMENT during the current iteration to verify that the MOMENT is small enough to be treated as zero. if not, please use the solution controls to reset the criterion for zero MOMENT.', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 4, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 0.0575, 
+    'attempts': 1, 'timeIncrement': 0.0225, 'increment': 4, 'stepTime': 0.0575, 
+    'step': 1, 'jobName': 'Job-Validation', 'severe': 2, 'iterations': 5, 
+    'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'THE STRAIN INCREMENT IS SO LARGE THAT THE PROGRAM WILL NOT ATTEMPT THE PLASTICITY CALCULATION AT 27 POINTS', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 0.0575, 
+    'attempts': ' 1U', 'timeIncrement': 0.03375, 'increment': 5, 
+    'stepTime': 0.0575, 'step': 1, 'jobName': 'Job-Validation', 'severe': 2, 
+    'iterations': 3, 'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'THE STRAIN INCREMENT IS SO LARGE THAT THE PROGRAM WILL NOT ATTEMPT THE PLASTICITY CALCULATION AT 1 POINTS', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 0.0575, 
+    'attempts': ' 2U', 'timeIncrement': 0.027, 'increment': 5, 
+    'stepTime': 0.0575, 'step': 1, 'jobName': 'Job-Validation', 'severe': 2, 
+    'iterations': 3, 'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'THE STRAIN INCREMENT IS SO LARGE THAT THE PROGRAM WILL NOT ATTEMPT THE PLASTICITY CALCULATION AT 6 POINTS', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'EXCESSIVE DISTORTION AT A TOTAL OF 4 INTEGRATION POINTS IN SOLID (CONTINUUM) ELEMENTS', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 0.0575, 
+    'attempts': ' 3U', 'timeIncrement': 0.0216, 'increment': 5, 
+    'stepTime': 0.0575, 'step': 1, 'jobName': 'Job-Validation', 'severe': 2, 
+    'iterations': 3, 'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 0.0575, 
+    'attempts': ' 4U', 'timeIncrement': 0.01728, 'increment': 5, 
+    'stepTime': 0.0575, 'step': 1, 'jobName': 'Job-Validation', 'severe': 4, 
+    'iterations': 4, 'phase': STANDARD_PHASE, 'equilibrium': 0})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 5, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 0.071324, 
+    'attempts': 5, 'timeIncrement': 0.013824, 'increment': 5, 
+    'stepTime': 0.071324, 'step': 1, 'jobName': 'Job-Validation', 'severe': 7, 
+    'iterations': 7, 'phase': STANDARD_PHASE, 'equilibrium': 0})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 6, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 0.09206, 
+    'attempts': 1, 'timeIncrement': 0.020736, 'increment': 6, 
+    'stepTime': 0.09206, 'step': 1, 'jobName': 'Job-Validation', 'severe': 3, 
+    'iterations': 5, 'phase': STANDARD_PHASE, 'equilibrium': 2})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 7, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 0.123164, 
+    'attempts': 1, 'timeIncrement': 0.031104, 'increment': 7, 
+    'stepTime': 0.123164, 'step': 1, 'jobName': 'Job-Validation', 'severe': 0, 
+    'iterations': 3, 'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 8, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 0.16982, 
+    'attempts': 1, 'timeIncrement': 0.046656, 'increment': 8, 
+    'stepTime': 0.16982, 'step': 1, 'jobName': 'Job-Validation', 'severe': 0, 
+    'iterations': 3, 'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 9, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 0.21982, 
+    'attempts': 1, 'timeIncrement': 0.05, 'increment': 9, 'stepTime': 0.21982, 
+    'step': 1, 'jobName': 'Job-Validation', 'severe': 0, 'iterations': 3, 
+    'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 10, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 0.26982, 
+    'attempts': 1, 'timeIncrement': 0.05, 'increment': 10, 'stepTime': 0.26982, 
+    'step': 1, 'jobName': 'Job-Validation', 'severe': 0, 'iterations': 3, 
+    'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 11, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 0.31982, 
+    'attempts': 1, 'timeIncrement': 0.05, 'increment': 11, 'stepTime': 0.31982, 
+    'step': 1, 'jobName': 'Job-Validation', 'severe': 0, 'iterations': 2, 
+    'phase': STANDARD_PHASE, 'equilibrium': 2})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 12, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 0.36982, 
+    'attempts': 1, 'timeIncrement': 0.05, 'increment': 12, 'stepTime': 0.36982, 
+    'step': 1, 'jobName': 'Job-Validation', 'severe': 0, 'iterations': 2, 
+    'phase': STANDARD_PHASE, 'equilibrium': 2})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 13, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 0.41982, 
+    'attempts': 1, 'timeIncrement': 0.05, 'increment': 13, 'stepTime': 0.41982, 
+    'step': 1, 'jobName': 'Job-Validation', 'severe': 0, 'iterations': 2, 
+    'phase': STANDARD_PHASE, 'equilibrium': 2})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 14, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 0.46982, 
+    'attempts': 1, 'timeIncrement': 0.05, 'increment': 14, 'stepTime': 0.46982, 
+    'step': 1, 'jobName': 'Job-Validation', 'severe': 0, 'iterations': 2, 
+    'phase': STANDARD_PHASE, 'equilibrium': 2})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 15, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 0.51982, 
+    'attempts': 1, 'timeIncrement': 0.05, 'increment': 15, 'stepTime': 0.51982, 
+    'step': 1, 'jobName': 'Job-Validation', 'severe': 0, 'iterations': 2, 
+    'phase': STANDARD_PHASE, 'equilibrium': 2})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 16, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 0.56982, 
+    'attempts': 1, 'timeIncrement': 0.05, 'increment': 16, 'stepTime': 0.56982, 
+    'step': 1, 'jobName': 'Job-Validation', 'severe': 0, 'iterations': 2, 
+    'phase': STANDARD_PHASE, 'equilibrium': 2})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 17, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 0.61982, 
+    'attempts': 1, 'timeIncrement': 0.05, 'increment': 17, 'stepTime': 0.61982, 
+    'step': 1, 'jobName': 'Job-Validation', 'severe': 0, 'iterations': 4, 
+    'phase': STANDARD_PHASE, 'equilibrium': 4})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 18, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 0.66982, 
+    'attempts': 1, 'timeIncrement': 0.05, 'increment': 18, 'stepTime': 0.66982, 
+    'step': 1, 'jobName': 'Job-Validation', 'severe': 0, 'iterations': 4, 
+    'phase': STANDARD_PHASE, 'equilibrium': 4})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 19, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 0.71982, 
+    'attempts': 1, 'timeIncrement': 0.05, 'increment': 19, 'stepTime': 0.71982, 
+    'step': 1, 'jobName': 'Job-Validation', 'severe': 0, 'iterations': 3, 
+    'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 20, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 0.76982, 
+    'attempts': 1, 'timeIncrement': 0.05, 'increment': 20, 'stepTime': 0.76982, 
+    'step': 1, 'jobName': 'Job-Validation', 'severe': 1, 'iterations': 4, 
+    'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 21, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 0.81982, 
+    'attempts': 1, 'timeIncrement': 0.05, 'increment': 21, 'stepTime': 0.81982, 
+    'step': 1, 'jobName': 'Job-Validation', 'severe': 2, 'iterations': 3, 
+    'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 22, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 0.86982, 
+    'attempts': 1, 'timeIncrement': 0.05, 'increment': 22, 'stepTime': 0.86982, 
+    'step': 1, 'jobName': 'Job-Validation', 'severe': 1, 'iterations': 3, 
+    'phase': STANDARD_PHASE, 'equilibrium': 2})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 23, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 0.91982, 
+    'attempts': 1, 'timeIncrement': 0.05, 'increment': 23, 'stepTime': 0.91982, 
+    'step': 1, 'jobName': 'Job-Validation', 'severe': 2, 'iterations': 4, 
+    'phase': STANDARD_PHASE, 'equilibrium': 2})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 24, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 0.96982, 
+    'attempts': 1, 'timeIncrement': 0.05, 'increment': 24, 'stepTime': 0.96982, 
+    'step': 1, 'jobName': 'Job-Validation', 'severe': 0, 'iterations': 4, 
+    'phase': STANDARD_PHASE, 'equilibrium': 4})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 25, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 1.0, 'attempts': 1, 
+    'timeIncrement': 0.0301799999999997, 'increment': 25, 'stepTime': 1.0, 
+    'step': 1, 'jobName': 'Job-Validation', 'severe': 1, 'iterations': 4, 
+    'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['Job-Validation']._Message(END_STEP, {'phase': STANDARD_PHASE, 
+    'stepId': 1, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STEP, {'phase': STANDARD_PHASE, 
+    'stepId': 2, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 1, 'frame': 0, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(MEMORY_ESTIMATE, {'phase': STANDARD_PHASE, 
+    'jobName': 'Job-Validation', 'memory': 118.0})
+mdb.jobs['Job-Validation']._Message(PHYSICAL_MEMORY, {'phase': STANDARD_PHASE, 
+    'physical_memory': 8094.0, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(MINIMUM_MEMORY, {'minimum_memory': 48.0, 
+    'phase': STANDARD_PHASE, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 1.0, 
+    'attempts': ' 1U', 'timeIncrement': 0.001, 'increment': 1, 'stepTime': 0.0, 
+    'step': 2, 'jobName': 'Job-Validation', 'severe': 4, 'iterations': 4, 
+    'phase': STANDARD_PHASE, 'equilibrium': 0})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 1.0, 
+    'attempts': ' 2U', 'timeIncrement': 0.0008, 'increment': 1, 
+    'stepTime': 0.0, 'step': 2, 'jobName': 'Job-Validation', 'severe': 6, 
+    'iterations': 6, 'phase': STANDARD_PHASE, 'equilibrium': 0})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 1, 'frame': 1, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 1.00064, 
+    'attempts': 3, 'timeIncrement': 0.00064, 'increment': 1, 
+    'stepTime': 0.00064, 'step': 2, 'jobName': 'Job-Validation', 'severe': 5, 
+    'iterations': 6, 'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 1, 'frame': 2, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 1.00128, 
+    'attempts': 1, 'timeIncrement': 0.00064, 'increment': 2, 
+    'stepTime': 0.00128, 'step': 2, 'jobName': 'Job-Validation', 'severe': 1, 
+    'iterations': 3, 'phase': STANDARD_PHASE, 'equilibrium': 2})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 1, 'frame': 3, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 1.00224, 
+    'attempts': 1, 'timeIncrement': 0.00096, 'increment': 3, 
+    'stepTime': 0.00224, 'step': 2, 'jobName': 'Job-Validation', 'severe': 1, 
+    'iterations': 2, 'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 1, 'frame': 4, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 1.00368, 
+    'attempts': 1, 'timeIncrement': 0.00144, 'increment': 4, 
+    'stepTime': 0.00368, 'step': 2, 'jobName': 'Job-Validation', 'severe': 2, 
+    'iterations': 2, 'phase': STANDARD_PHASE, 'equilibrium': 0})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 1, 'frame': 5, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 1.00584, 
+    'attempts': 1, 'timeIncrement': 0.00216, 'increment': 5, 
+    'stepTime': 0.00584, 'step': 2, 'jobName': 'Job-Validation', 'severe': 0, 
+    'iterations': 2, 'phase': STANDARD_PHASE, 'equilibrium': 2})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'THE STRAIN INCREMENT IS SO LARGE THAT THE PROGRAM WILL NOT ATTEMPT THE PLASTICITY CALCULATION AT 36 POINTS', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 1.00584, 
+    'attempts': ' 1U', 'timeIncrement': 0.00324, 'increment': 6, 
+    'stepTime': 0.00584, 'step': 2, 'jobName': 'Job-Validation', 'severe': 1, 
+    'iterations': 2, 'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'DISPLACEMENT INCREMENT FOR CONTACT IS TOO BIG.', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'DISPLACEMENT INCREMENT FOR CONTACT IS TOO BIG.', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'DISPLACEMENT INCREMENT FOR CONTACT IS TOO BIG.', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'THE STRAIN INCREMENT IS SO LARGE THAT THE PROGRAM WILL NOT ATTEMPT THE PLASTICITY CALCULATION AT 97 POINTS', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 1.00584, 
+    'attempts': ' 2U', 'timeIncrement': 0.002592, 'increment': 6, 
+    'stepTime': 0.00584, 'step': 2, 'jobName': 'Job-Validation', 'severe': 1, 
+    'iterations': 2, 'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 1, 'frame': 6, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 1.0079136, 
+    'attempts': 3, 'timeIncrement': 0.0020736, 'increment': 6, 
+    'stepTime': 0.0079136, 'step': 2, 'jobName': 'Job-Validation', 'severe': 1, 
+    'iterations': 3, 'phase': STANDARD_PHASE, 'equilibrium': 2})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'DISPLACEMENT INCREMENT FOR CONTACT IS TOO BIG.', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'DISPLACEMENT INCREMENT FOR CONTACT IS TOO BIG.', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'DISPLACEMENT INCREMENT FOR CONTACT IS TOO BIG.', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'THE STRAIN INCREMENT IS SO LARGE THAT THE PROGRAM WILL NOT ATTEMPT THE PLASTICITY CALCULATION AT 2 POINTS', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'EXCESSIVE DISTORTION AT A TOTAL OF 1567 INTEGRATION POINTS IN SOLID (CONTINUUM) ELEMENTS', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 1.0079136, 
+    'attempts': ' 1U', 'timeIncrement': 0.0031104, 'increment': 7, 
+    'stepTime': 0.0079136, 'step': 2, 'jobName': 'Job-Validation', 'severe': 2, 
+    'iterations': 3, 'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'EXCESSIVE DISTORTION AT A TOTAL OF 674 INTEGRATION POINTS IN SOLID (CONTINUUM) ELEMENTS', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 1.0079136, 
+    'attempts': ' 2U', 'timeIncrement': 0.00248832, 'increment': 7, 
+    'stepTime': 0.0079136, 'step': 2, 'jobName': 'Job-Validation', 'severe': 2, 
+    'iterations': 3, 'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'DISPLACEMENT INCREMENT FOR CONTACT IS TOO BIG.', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'DISPLACEMENT INCREMENT FOR CONTACT IS TOO BIG.', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'DISPLACEMENT INCREMENT FOR CONTACT IS TOO BIG.', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'THE STRAIN INCREMENT IS SO LARGE THAT THE PROGRAM WILL NOT ATTEMPT THE PLASTICITY CALCULATION AT 2 POINTS', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'EXCESSIVE DISTORTION AT A TOTAL OF 1217 INTEGRATION POINTS IN SOLID (CONTINUUM) ELEMENTS', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 1.0079136, 
+    'attempts': ' 3U', 'timeIncrement': 0.001990656, 'increment': 7, 
+    'stepTime': 0.0079136, 'step': 2, 'jobName': 'Job-Validation', 'severe': 2, 
+    'iterations': 3, 'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'EXCESSIVE DISTORTION AT A TOTAL OF 263 INTEGRATION POINTS IN SOLID (CONTINUUM) ELEMENTS', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 1.0079136, 
+    'attempts': ' 4U', 'timeIncrement': 0.0015925248, 'increment': 7, 
+    'stepTime': 0.0079136, 'step': 2, 'jobName': 'Job-Validation', 'severe': 2, 
+    'iterations': 3, 'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'THE STRAIN INCREMENT IS SO LARGE THAT THE PROGRAM WILL NOT ATTEMPT THE PLASTICITY CALCULATION AT 42 POINTS', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'EXCESSIVE DISTORTION AT A TOTAL OF 1 INTEGRATION POINTS IN SOLID (CONTINUUM) ELEMENTS', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 1.0079136, 
+    'attempts': ' 5U', 'timeIncrement': 0.00127401984, 'increment': 7, 
+    'stepTime': 0.0079136, 'step': 2, 'jobName': 'Job-Validation', 'severe': 2, 
+    'iterations': 3, 'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'THE STRAIN INCREMENT IS SO LARGE THAT THE PROGRAM WILL NOT ATTEMPT THE PLASTICITY CALCULATION AT 1 POINTS', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 1.0079136, 
+    'attempts': ' 6U', 'timeIncrement': 0.001019215872, 'increment': 7, 
+    'stepTime': 0.0079136, 'step': 2, 'jobName': 'Job-Validation', 'severe': 2, 
+    'iterations': 3, 'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 1, 'frame': 7, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 1.0087289726976, 
+    'attempts': 7, 'timeIncrement': 0.000815372697600001, 'increment': 7, 
+    'stepTime': 0.0087289726976, 'step': 2, 'jobName': 'Job-Validation', 
+    'severe': 3, 'iterations': 3, 'phase': STANDARD_PHASE, 'equilibrium': 0})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 1, 'frame': 8, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 1.009952031744, 
+    'attempts': 1, 'timeIncrement': 0.0012230590464, 'increment': 8, 
+    'stepTime': 0.009952031744, 'step': 2, 'jobName': 'Job-Validation', 
+    'severe': 1, 'iterations': 1, 'phase': STANDARD_PHASE, 'equilibrium': 0})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 1, 'frame': 9, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 1.0117866203136, 
+    'attempts': 1, 'timeIncrement': 0.0018345885696, 'increment': 9, 
+    'stepTime': 0.0117866203136, 'step': 2, 'jobName': 'Job-Validation', 
+    'severe': 1, 'iterations': 1, 'phase': STANDARD_PHASE, 'equilibrium': 0})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 1, 'frame': 10, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 1.014538503168, 
+    'attempts': 1, 'timeIncrement': 0.0027518828544, 'increment': 10, 
+    'stepTime': 0.014538503168, 'step': 2, 'jobName': 'Job-Validation', 
+    'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 1, 'frame': 11, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 1.0186663274496, 
+    'attempts': 1, 'timeIncrement': 0.0041278242816, 'increment': 11, 
+    'stepTime': 0.0186663274496, 'step': 2, 'jobName': 'Job-Validation', 
+    'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 1, 'frame': 12, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 1.024858063872, 
+    'attempts': 1, 'timeIncrement': 0.0061917364224, 'increment': 12, 
+    'stepTime': 0.024858063872, 'step': 2, 'jobName': 'Job-Validation', 
+    'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 1, 'frame': 13, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 1.0341456685056, 
+    'attempts': 1, 'timeIncrement': 0.00928760463360001, 'increment': 13, 
+    'stepTime': 0.0341456685056, 'step': 2, 'jobName': 'Job-Validation', 
+    'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 1, 'frame': 14, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 1.048077075456, 
+    'attempts': 1, 'timeIncrement': 0.0139314069504, 'increment': 14, 
+    'stepTime': 0.048077075456, 'step': 2, 'jobName': 'Job-Validation', 
+    'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 1, 'frame': 15, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 1.0689741858816, 
+    'attempts': 1, 'timeIncrement': 0.0208971104256, 'increment': 15, 
+    'stepTime': 0.0689741858816, 'step': 2, 'jobName': 'Job-Validation', 
+    'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 1, 'frame': 16, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 1.10031985152, 
+    'attempts': 1, 'timeIncrement': 0.0313456656384, 'increment': 16, 
+    'stepTime': 0.10031985152, 'step': 2, 'jobName': 'Job-Validation', 
+    'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 1, 'frame': 17, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 1.1473383499776, 
+    'attempts': 1, 'timeIncrement': 0.0470184984576, 'increment': 17, 
+    'stepTime': 0.1473383499776, 'step': 2, 'jobName': 'Job-Validation', 
+    'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 1, 'frame': 18, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 1.217866097664, 
+    'attempts': 1, 'timeIncrement': 0.0705277476864, 'increment': 18, 
+    'stepTime': 0.217866097664, 'step': 2, 'jobName': 'Job-Validation', 
+    'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 1, 'frame': 19, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 1.3236577191936, 
+    'attempts': 1, 'timeIncrement': 0.1057916215296, 'increment': 19, 
+    'stepTime': 0.3236577191936, 'step': 2, 'jobName': 'Job-Validation', 
+    'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 1, 'frame': 20, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 1.482345151488, 
+    'attempts': 1, 'timeIncrement': 0.1586874322944, 'increment': 20, 
+    'stepTime': 0.482345151488, 'step': 2, 'jobName': 'Job-Validation', 
+    'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 1, 'frame': 21, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 1.7203762999296, 
+    'attempts': 1, 'timeIncrement': 0.2380311484416, 'increment': 21, 
+    'stepTime': 0.7203762999296, 'step': 2, 'jobName': 'Job-Validation', 
+    'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 1, 'frame': 22, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 2.0, 'attempts': 1, 
+    'timeIncrement': 0.2796237000704, 'increment': 22, 'stepTime': 1.0, 
+    'step': 2, 'jobName': 'Job-Validation', 'severe': 0, 'iterations': 1, 
+    'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Job-Validation']._Message(END_STEP, {'phase': STANDARD_PHASE, 
+    'stepId': 2, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(COMPLETED, {'phase': STANDARD_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(JOB_COMPLETED, {
+    'time': 'Tue Apr  5 15:17:28 2022', 'jobName': 'Job-Validation'})
+mdb.models['Model-Ref'].historyOutputRequests['H-Output-1'].suppress()
+del mdb.models['Model-Ref'].historyOutputRequests['H-Output-1']
+mdb.models['Model-Ref'].fieldOutputRequests['F-Output-1'].setValues(variables=(
+    'S', 'E', 'PE', 'PEQC', 'U', 'RF', 'FV'))
+mdb.jobs['Job-Validation'].submit(consistencyChecking=OFF)
+mdb.jobs['Job-Validation']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'DESKTOP-MESBJLV', 'handle': 0, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PE IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQ IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEQC IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST S IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST LE IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PE IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQ IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEQC IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST S IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST LE IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PE IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQ IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEQC IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST S IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST LE IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PE IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQ IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEQC IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST S IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST LE IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PE IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQ IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEQC IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST S IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST LE IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PE IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQ IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEQC IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST S IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST LE IS NOT AVAILABLE FOR ELEMENT TYPE R3D4', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'YIELD STRESS IS TOO LOW, THE CAP WOULD BE IN TENSION SPACE WHEN PB=4.33300E+05, COHESION= 1.21884E+06, BETA=70.533, R=0.44120', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'YIELD STRESS IS TOO LOW, THE CAP WOULD BE IN TENSION SPACE WHEN PB=4.33300E+05, COHESION= 1.80383E+06, BETA=70.375, R=0.45155', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'YIELD STRESS IS TOO LOW, THE CAP WOULD BE IN TENSION SPACE WHEN PB=4.33300E+05, COHESION= 2.66958E+06, BETA=70.186, R=0.46308', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'YIELD STRESS IS TOO LOW, THE CAP WOULD BE IN TENSION SPACE WHEN PB=4.33300E+05, COHESION= 3.95085E+06, BETA=69.959, R=0.47593', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'YIELD STRESS IS TOO LOW, THE CAP WOULD BE IN TENSION SPACE WHEN PB=4.33300E+05, COHESION= 5.84706E+06, BETA=69.690, R=0.49023', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'YIELD STRESS IS TOO LOW, THE CAP WOULD BE IN TENSION SPACE WHEN PB=4.33300E+05, COHESION= 8.65338E+06, BETA=69.373, R=0.50615', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'YIELD STRESS IS TOO LOW, THE CAP WOULD BE IN TENSION SPACE WHEN PB=4.33300E+05, COHESION= 1.28066E+07, BETA=69.002, R=0.52388', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'THE *USER DEFINED FIELD OPTION HAS BEEN USED WITH THE STATEV ARRAY DIMENSIONED TO ZERO SINCE THE *DEPVAR OPTION IS NOT USED WITH THIS MATERIAL. CONSEQUENTLY, DEFINING STATEV ENTRIES IN USDFLD WILL CAUSE CODE EXECUTION ERRORS.', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(ODB_FILE, {'phase': BATCHPRE_PHASE, 
+    'file': 'C:\\Users\\mammad\\Desktop\\Zhou_et_al_2017\\Job-Validation.odb', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(COMPLETED, {'phase': BATCHPRE_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STARTED, {'phase': STANDARD_PHASE, 
+    'clientHost': 'DESKTOP-MESBJLV', 'handle': 11512, 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STEP, {'phase': STANDARD_PHASE, 
+    'stepId': 1, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 0, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'THERE ARE 2 UNCONNECTED REGIONS IN THE MODEL.', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(MEMORY_ESTIMATE, {'phase': STANDARD_PHASE, 
+    'jobName': 'Job-Validation', 'memory': 115.0})
+mdb.jobs['Job-Validation']._Message(PHYSICAL_MEMORY, {'phase': STANDARD_PHASE, 
+    'physical_memory': 8094.0, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(MINIMUM_MEMORY, {'minimum_memory': 52.0, 
+    'phase': STANDARD_PHASE, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'There is zero MOMENT everywhere in the model based on the default criterion. please check the value of the average MOMENT during the current iteration to verify that the MOMENT is small enough to be treated as zero. if not, please use the solution controls to reset the criterion for zero MOMENT.', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 1, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 0.01, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 1, 'stepTime': 0.01, 'step': 1, 
+    'jobName': 'Job-Validation', 'severe': 1, 'iterations': 1, 
+    'phase': STANDARD_PHASE, 'equilibrium': 0})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'There is zero MOMENT everywhere in the model based on the default criterion. please check the value of the average MOMENT during the current iteration to verify that the MOMENT is small enough to be treated as zero. if not, please use the solution controls to reset the criterion for zero MOMENT.', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 2, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 0.02, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 2, 'stepTime': 0.02, 'step': 1, 
+    'jobName': 'Job-Validation', 'severe': 1, 'iterations': 1, 
+    'phase': STANDARD_PHASE, 'equilibrium': 0})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'There is zero MOMENT everywhere in the model based on the default criterion. please check the value of the average MOMENT during the current iteration to verify that the MOMENT is small enough to be treated as zero. if not, please use the solution controls to reset the criterion for zero MOMENT.', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 3, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 0.035, 'attempts': 1, 
+    'timeIncrement': 0.015, 'increment': 3, 'stepTime': 0.035, 'step': 1, 
+    'jobName': 'Job-Validation', 'severe': 1, 'iterations': 1, 
+    'phase': STANDARD_PHASE, 'equilibrium': 0})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'There is zero MOMENT everywhere in the model based on the default criterion. please check the value of the average MOMENT during the current iteration to verify that the MOMENT is small enough to be treated as zero. if not, please use the solution controls to reset the criterion for zero MOMENT.', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 4, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 0.0575, 
+    'attempts': 1, 'timeIncrement': 0.0225, 'increment': 4, 'stepTime': 0.0575, 
+    'step': 1, 'jobName': 'Job-Validation', 'severe': 2, 'iterations': 5, 
+    'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'THE STRAIN INCREMENT IS SO LARGE THAT THE PROGRAM WILL NOT ATTEMPT THE PLASTICITY CALCULATION AT 27 POINTS', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 0.0575, 
+    'attempts': ' 1U', 'timeIncrement': 0.03375, 'increment': 5, 
+    'stepTime': 0.0575, 'step': 1, 'jobName': 'Job-Validation', 'severe': 2, 
+    'iterations': 3, 'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'THE STRAIN INCREMENT IS SO LARGE THAT THE PROGRAM WILL NOT ATTEMPT THE PLASTICITY CALCULATION AT 1 POINTS', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 0.0575, 
+    'attempts': ' 2U', 'timeIncrement': 0.027, 'increment': 5, 
+    'stepTime': 0.0575, 'step': 1, 'jobName': 'Job-Validation', 'severe': 2, 
+    'iterations': 3, 'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'THE STRAIN INCREMENT IS SO LARGE THAT THE PROGRAM WILL NOT ATTEMPT THE PLASTICITY CALCULATION AT 6 POINTS', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'EXCESSIVE DISTORTION AT A TOTAL OF 4 INTEGRATION POINTS IN SOLID (CONTINUUM) ELEMENTS', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 0.0575, 
+    'attempts': ' 3U', 'timeIncrement': 0.0216, 'increment': 5, 
+    'stepTime': 0.0575, 'step': 1, 'jobName': 'Job-Validation', 'severe': 2, 
+    'iterations': 3, 'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 0.0575, 
+    'attempts': ' 4U', 'timeIncrement': 0.01728, 'increment': 5, 
+    'stepTime': 0.0575, 'step': 1, 'jobName': 'Job-Validation', 'severe': 4, 
+    'iterations': 4, 'phase': STANDARD_PHASE, 'equilibrium': 0})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 5, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 0.071324, 
+    'attempts': 5, 'timeIncrement': 0.013824, 'increment': 5, 
+    'stepTime': 0.071324, 'step': 1, 'jobName': 'Job-Validation', 'severe': 7, 
+    'iterations': 7, 'phase': STANDARD_PHASE, 'equilibrium': 0})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 6, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 0.09206, 
+    'attempts': 1, 'timeIncrement': 0.020736, 'increment': 6, 
+    'stepTime': 0.09206, 'step': 1, 'jobName': 'Job-Validation', 'severe': 3, 
+    'iterations': 5, 'phase': STANDARD_PHASE, 'equilibrium': 2})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 7, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 0.123164, 
+    'attempts': 1, 'timeIncrement': 0.031104, 'increment': 7, 
+    'stepTime': 0.123164, 'step': 1, 'jobName': 'Job-Validation', 'severe': 0, 
+    'iterations': 3, 'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 8, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 0.16982, 
+    'attempts': 1, 'timeIncrement': 0.046656, 'increment': 8, 
+    'stepTime': 0.16982, 'step': 1, 'jobName': 'Job-Validation', 'severe': 0, 
+    'iterations': 3, 'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 9, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 0.21982, 
+    'attempts': 1, 'timeIncrement': 0.05, 'increment': 9, 'stepTime': 0.21982, 
+    'step': 1, 'jobName': 'Job-Validation', 'severe': 0, 'iterations': 3, 
+    'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 10, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 0.26982, 
+    'attempts': 1, 'timeIncrement': 0.05, 'increment': 10, 'stepTime': 0.26982, 
+    'step': 1, 'jobName': 'Job-Validation', 'severe': 0, 'iterations': 3, 
+    'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 11, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 0.31982, 
+    'attempts': 1, 'timeIncrement': 0.05, 'increment': 11, 'stepTime': 0.31982, 
+    'step': 1, 'jobName': 'Job-Validation', 'severe': 0, 'iterations': 2, 
+    'phase': STANDARD_PHASE, 'equilibrium': 2})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 12, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 0.36982, 
+    'attempts': 1, 'timeIncrement': 0.05, 'increment': 12, 'stepTime': 0.36982, 
+    'step': 1, 'jobName': 'Job-Validation', 'severe': 0, 'iterations': 2, 
+    'phase': STANDARD_PHASE, 'equilibrium': 2})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 13, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 0.41982, 
+    'attempts': 1, 'timeIncrement': 0.05, 'increment': 13, 'stepTime': 0.41982, 
+    'step': 1, 'jobName': 'Job-Validation', 'severe': 0, 'iterations': 2, 
+    'phase': STANDARD_PHASE, 'equilibrium': 2})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 14, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 0.46982, 
+    'attempts': 1, 'timeIncrement': 0.05, 'increment': 14, 'stepTime': 0.46982, 
+    'step': 1, 'jobName': 'Job-Validation', 'severe': 0, 'iterations': 2, 
+    'phase': STANDARD_PHASE, 'equilibrium': 2})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 15, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 0.51982, 
+    'attempts': 1, 'timeIncrement': 0.05, 'increment': 15, 'stepTime': 0.51982, 
+    'step': 1, 'jobName': 'Job-Validation', 'severe': 0, 'iterations': 2, 
+    'phase': STANDARD_PHASE, 'equilibrium': 2})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 16, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 0.56982, 
+    'attempts': 1, 'timeIncrement': 0.05, 'increment': 16, 'stepTime': 0.56982, 
+    'step': 1, 'jobName': 'Job-Validation', 'severe': 0, 'iterations': 2, 
+    'phase': STANDARD_PHASE, 'equilibrium': 2})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 17, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 0.61982, 
+    'attempts': 1, 'timeIncrement': 0.05, 'increment': 17, 'stepTime': 0.61982, 
+    'step': 1, 'jobName': 'Job-Validation', 'severe': 0, 'iterations': 4, 
+    'phase': STANDARD_PHASE, 'equilibrium': 4})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 18, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 0.66982, 
+    'attempts': 1, 'timeIncrement': 0.05, 'increment': 18, 'stepTime': 0.66982, 
+    'step': 1, 'jobName': 'Job-Validation', 'severe': 0, 'iterations': 4, 
+    'phase': STANDARD_PHASE, 'equilibrium': 4})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 19, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 0.71982, 
+    'attempts': 1, 'timeIncrement': 0.05, 'increment': 19, 'stepTime': 0.71982, 
+    'step': 1, 'jobName': 'Job-Validation', 'severe': 0, 'iterations': 3, 
+    'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 20, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 0.76982, 
+    'attempts': 1, 'timeIncrement': 0.05, 'increment': 20, 'stepTime': 0.76982, 
+    'step': 1, 'jobName': 'Job-Validation', 'severe': 1, 'iterations': 4, 
+    'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 21, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 0.81982, 
+    'attempts': 1, 'timeIncrement': 0.05, 'increment': 21, 'stepTime': 0.81982, 
+    'step': 1, 'jobName': 'Job-Validation', 'severe': 2, 'iterations': 3, 
+    'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 22, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 0.86982, 
+    'attempts': 1, 'timeIncrement': 0.05, 'increment': 22, 'stepTime': 0.86982, 
+    'step': 1, 'jobName': 'Job-Validation', 'severe': 1, 'iterations': 3, 
+    'phase': STANDARD_PHASE, 'equilibrium': 2})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 23, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 0.91982, 
+    'attempts': 1, 'timeIncrement': 0.05, 'increment': 23, 'stepTime': 0.91982, 
+    'step': 1, 'jobName': 'Job-Validation', 'severe': 2, 'iterations': 4, 
+    'phase': STANDARD_PHASE, 'equilibrium': 2})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 24, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 0.96982, 
+    'attempts': 1, 'timeIncrement': 0.05, 'increment': 24, 'stepTime': 0.96982, 
+    'step': 1, 'jobName': 'Job-Validation', 'severe': 0, 'iterations': 4, 
+    'phase': STANDARD_PHASE, 'equilibrium': 4})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 25, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 1.0, 'attempts': 1, 
+    'timeIncrement': 0.0301799999999997, 'increment': 25, 'stepTime': 1.0, 
+    'step': 1, 'jobName': 'Job-Validation', 'severe': 1, 'iterations': 4, 
+    'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['Job-Validation']._Message(END_STEP, {'phase': STANDARD_PHASE, 
+    'stepId': 1, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STEP, {'phase': STANDARD_PHASE, 
+    'stepId': 2, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 1, 'frame': 0, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(MEMORY_ESTIMATE, {'phase': STANDARD_PHASE, 
+    'jobName': 'Job-Validation', 'memory': 118.0})
+mdb.jobs['Job-Validation']._Message(PHYSICAL_MEMORY, {'phase': STANDARD_PHASE, 
+    'physical_memory': 8094.0, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(MINIMUM_MEMORY, {'minimum_memory': 48.0, 
+    'phase': STANDARD_PHASE, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 1.0, 
+    'attempts': ' 1U', 'timeIncrement': 0.001, 'increment': 1, 'stepTime': 0.0, 
+    'step': 2, 'jobName': 'Job-Validation', 'severe': 4, 'iterations': 4, 
+    'phase': STANDARD_PHASE, 'equilibrium': 0})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 1.0, 
+    'attempts': ' 2U', 'timeIncrement': 0.0008, 'increment': 1, 
+    'stepTime': 0.0, 'step': 2, 'jobName': 'Job-Validation', 'severe': 6, 
+    'iterations': 6, 'phase': STANDARD_PHASE, 'equilibrium': 0})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 1, 'frame': 1, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 1.00064, 
+    'attempts': 3, 'timeIncrement': 0.00064, 'increment': 1, 
+    'stepTime': 0.00064, 'step': 2, 'jobName': 'Job-Validation', 'severe': 5, 
+    'iterations': 6, 'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 1, 'frame': 2, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 1.00128, 
+    'attempts': 1, 'timeIncrement': 0.00064, 'increment': 2, 
+    'stepTime': 0.00128, 'step': 2, 'jobName': 'Job-Validation', 'severe': 1, 
+    'iterations': 3, 'phase': STANDARD_PHASE, 'equilibrium': 2})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 1, 'frame': 3, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 1.00224, 
+    'attempts': 1, 'timeIncrement': 0.00096, 'increment': 3, 
+    'stepTime': 0.00224, 'step': 2, 'jobName': 'Job-Validation', 'severe': 1, 
+    'iterations': 2, 'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 1, 'frame': 4, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 1.00368, 
+    'attempts': 1, 'timeIncrement': 0.00144, 'increment': 4, 
+    'stepTime': 0.00368, 'step': 2, 'jobName': 'Job-Validation', 'severe': 2, 
+    'iterations': 2, 'phase': STANDARD_PHASE, 'equilibrium': 0})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 1, 'frame': 5, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 1.00584, 
+    'attempts': 1, 'timeIncrement': 0.00216, 'increment': 5, 
+    'stepTime': 0.00584, 'step': 2, 'jobName': 'Job-Validation', 'severe': 0, 
+    'iterations': 2, 'phase': STANDARD_PHASE, 'equilibrium': 2})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'THE STRAIN INCREMENT IS SO LARGE THAT THE PROGRAM WILL NOT ATTEMPT THE PLASTICITY CALCULATION AT 36 POINTS', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 1.00584, 
+    'attempts': ' 1U', 'timeIncrement': 0.00324, 'increment': 6, 
+    'stepTime': 0.00584, 'step': 2, 'jobName': 'Job-Validation', 'severe': 1, 
+    'iterations': 2, 'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'DISPLACEMENT INCREMENT FOR CONTACT IS TOO BIG.', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'DISPLACEMENT INCREMENT FOR CONTACT IS TOO BIG.', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'DISPLACEMENT INCREMENT FOR CONTACT IS TOO BIG.', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'THE STRAIN INCREMENT IS SO LARGE THAT THE PROGRAM WILL NOT ATTEMPT THE PLASTICITY CALCULATION AT 97 POINTS', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 1.00584, 
+    'attempts': ' 2U', 'timeIncrement': 0.002592, 'increment': 6, 
+    'stepTime': 0.00584, 'step': 2, 'jobName': 'Job-Validation', 'severe': 1, 
+    'iterations': 2, 'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 1, 'frame': 6, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 1.0079136, 
+    'attempts': 3, 'timeIncrement': 0.0020736, 'increment': 6, 
+    'stepTime': 0.0079136, 'step': 2, 'jobName': 'Job-Validation', 'severe': 1, 
+    'iterations': 3, 'phase': STANDARD_PHASE, 'equilibrium': 2})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'DISPLACEMENT INCREMENT FOR CONTACT IS TOO BIG.', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'DISPLACEMENT INCREMENT FOR CONTACT IS TOO BIG.', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'DISPLACEMENT INCREMENT FOR CONTACT IS TOO BIG.', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'THE STRAIN INCREMENT IS SO LARGE THAT THE PROGRAM WILL NOT ATTEMPT THE PLASTICITY CALCULATION AT 2 POINTS', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'EXCESSIVE DISTORTION AT A TOTAL OF 1567 INTEGRATION POINTS IN SOLID (CONTINUUM) ELEMENTS', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 1.0079136, 
+    'attempts': ' 1U', 'timeIncrement': 0.0031104, 'increment': 7, 
+    'stepTime': 0.0079136, 'step': 2, 'jobName': 'Job-Validation', 'severe': 2, 
+    'iterations': 3, 'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'EXCESSIVE DISTORTION AT A TOTAL OF 674 INTEGRATION POINTS IN SOLID (CONTINUUM) ELEMENTS', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 1.0079136, 
+    'attempts': ' 2U', 'timeIncrement': 0.00248832, 'increment': 7, 
+    'stepTime': 0.0079136, 'step': 2, 'jobName': 'Job-Validation', 'severe': 2, 
+    'iterations': 3, 'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'DISPLACEMENT INCREMENT FOR CONTACT IS TOO BIG.', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'DISPLACEMENT INCREMENT FOR CONTACT IS TOO BIG.', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'DISPLACEMENT INCREMENT FOR CONTACT IS TOO BIG.', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'THE STRAIN INCREMENT IS SO LARGE THAT THE PROGRAM WILL NOT ATTEMPT THE PLASTICITY CALCULATION AT 2 POINTS', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'EXCESSIVE DISTORTION AT A TOTAL OF 1217 INTEGRATION POINTS IN SOLID (CONTINUUM) ELEMENTS', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 1.0079136, 
+    'attempts': ' 3U', 'timeIncrement': 0.001990656, 'increment': 7, 
+    'stepTime': 0.0079136, 'step': 2, 'jobName': 'Job-Validation', 'severe': 2, 
+    'iterations': 3, 'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'EXCESSIVE DISTORTION AT A TOTAL OF 263 INTEGRATION POINTS IN SOLID (CONTINUUM) ELEMENTS', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 1.0079136, 
+    'attempts': ' 4U', 'timeIncrement': 0.0015925248, 'increment': 7, 
+    'stepTime': 0.0079136, 'step': 2, 'jobName': 'Job-Validation', 'severe': 2, 
+    'iterations': 3, 'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'THE STRAIN INCREMENT IS SO LARGE THAT THE PROGRAM WILL NOT ATTEMPT THE PLASTICITY CALCULATION AT 42 POINTS', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'EXCESSIVE DISTORTION AT A TOTAL OF 1 INTEGRATION POINTS IN SOLID (CONTINUUM) ELEMENTS', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 1.0079136, 
+    'attempts': ' 5U', 'timeIncrement': 0.00127401984, 'increment': 7, 
+    'stepTime': 0.0079136, 'step': 2, 'jobName': 'Job-Validation', 'severe': 2, 
+    'iterations': 3, 'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Job-Validation']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'THE STRAIN INCREMENT IS SO LARGE THAT THE PROGRAM WILL NOT ATTEMPT THE PLASTICITY CALCULATION AT 1 POINTS', 
+    'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 1.0079136, 
+    'attempts': ' 6U', 'timeIncrement': 0.001019215872, 'increment': 7, 
+    'stepTime': 0.0079136, 'step': 2, 'jobName': 'Job-Validation', 'severe': 2, 
+    'iterations': 3, 'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 1, 'frame': 7, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 1.0087289726976, 
+    'attempts': 7, 'timeIncrement': 0.000815372697600001, 'increment': 7, 
+    'stepTime': 0.0087289726976, 'step': 2, 'jobName': 'Job-Validation', 
+    'severe': 3, 'iterations': 3, 'phase': STANDARD_PHASE, 'equilibrium': 0})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 1, 'frame': 8, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 1.009952031744, 
+    'attempts': 1, 'timeIncrement': 0.0012230590464, 'increment': 8, 
+    'stepTime': 0.009952031744, 'step': 2, 'jobName': 'Job-Validation', 
+    'severe': 1, 'iterations': 1, 'phase': STANDARD_PHASE, 'equilibrium': 0})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 1, 'frame': 9, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 1.0117866203136, 
+    'attempts': 1, 'timeIncrement': 0.0018345885696, 'increment': 9, 
+    'stepTime': 0.0117866203136, 'step': 2, 'jobName': 'Job-Validation', 
+    'severe': 1, 'iterations': 1, 'phase': STANDARD_PHASE, 'equilibrium': 0})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 1, 'frame': 10, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 1.014538503168, 
+    'attempts': 1, 'timeIncrement': 0.0027518828544, 'increment': 10, 
+    'stepTime': 0.014538503168, 'step': 2, 'jobName': 'Job-Validation', 
+    'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 1, 'frame': 11, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 1.0186663274496, 
+    'attempts': 1, 'timeIncrement': 0.0041278242816, 'increment': 11, 
+    'stepTime': 0.0186663274496, 'step': 2, 'jobName': 'Job-Validation', 
+    'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 1, 'frame': 12, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 1.024858063872, 
+    'attempts': 1, 'timeIncrement': 0.0061917364224, 'increment': 12, 
+    'stepTime': 0.024858063872, 'step': 2, 'jobName': 'Job-Validation', 
+    'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 1, 'frame': 13, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 1.0341456685056, 
+    'attempts': 1, 'timeIncrement': 0.00928760463360001, 'increment': 13, 
+    'stepTime': 0.0341456685056, 'step': 2, 'jobName': 'Job-Validation', 
+    'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 1, 'frame': 14, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 1.048077075456, 
+    'attempts': 1, 'timeIncrement': 0.0139314069504, 'increment': 14, 
+    'stepTime': 0.048077075456, 'step': 2, 'jobName': 'Job-Validation', 
+    'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 1, 'frame': 15, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 1.0689741858816, 
+    'attempts': 1, 'timeIncrement': 0.0208971104256, 'increment': 15, 
+    'stepTime': 0.0689741858816, 'step': 2, 'jobName': 'Job-Validation', 
+    'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 1, 'frame': 16, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 1.10031985152, 
+    'attempts': 1, 'timeIncrement': 0.0313456656384, 'increment': 16, 
+    'stepTime': 0.10031985152, 'step': 2, 'jobName': 'Job-Validation', 
+    'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 1, 'frame': 17, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 1.1473383499776, 
+    'attempts': 1, 'timeIncrement': 0.0470184984576, 'increment': 17, 
+    'stepTime': 0.1473383499776, 'step': 2, 'jobName': 'Job-Validation', 
+    'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 1, 'frame': 18, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 1.217866097664, 
+    'attempts': 1, 'timeIncrement': 0.0705277476864, 'increment': 18, 
+    'stepTime': 0.217866097664, 'step': 2, 'jobName': 'Job-Validation', 
+    'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 1, 'frame': 19, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 1.3236577191936, 
+    'attempts': 1, 'timeIncrement': 0.1057916215296, 'increment': 19, 
+    'stepTime': 0.3236577191936, 'step': 2, 'jobName': 'Job-Validation', 
+    'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 1, 'frame': 20, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 1.482345151488, 
+    'attempts': 1, 'timeIncrement': 0.1586874322944, 'increment': 20, 
+    'stepTime': 0.482345151488, 'step': 2, 'jobName': 'Job-Validation', 
+    'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 1, 'frame': 21, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 1.7203762999296, 
+    'attempts': 1, 'timeIncrement': 0.2380311484416, 'increment': 21, 
+    'stepTime': 0.7203762999296, 'step': 2, 'jobName': 'Job-Validation', 
+    'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Job-Validation']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 1, 'frame': 22, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(STATUS, {'totalTime': 2.0, 'attempts': 1, 
+    'timeIncrement': 0.2796237000704, 'increment': 22, 'stepTime': 1.0, 
+    'step': 2, 'jobName': 'Job-Validation', 'severe': 0, 'iterations': 1, 
+    'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Job-Validation']._Message(END_STEP, {'phase': STANDARD_PHASE, 
+    'stepId': 2, 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(COMPLETED, {'phase': STANDARD_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'Job-Validation'})
+mdb.jobs['Job-Validation']._Message(JOB_COMPLETED, {
+    'time': 'Tue Apr  5 15:24:05 2022', 'jobName': 'Job-Validation'})
+# Save by mammad on 2022_04_05-15.29.33; build 2019 2018_09_24-22.11.51 157541
