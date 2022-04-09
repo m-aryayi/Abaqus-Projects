@@ -11,7 +11,17 @@ This repository contains a variety of ABAQUS projects codes. In the future, I wi
       In this directory, the USDFLD subroutine and MATLAB have been used to simulate the below paper. Matlab file couple with Abaqus and run the input file using the subroutine.
       
       <a href="https://doi.org/10.1016/j.actbio.2016.12.036"> <i> Armitage, O. E., & Oyen, M. L. (2017). Indentation across interfaces between stiff and compliant tissues.</i> </a>
+
+       <hr>
+       
+	- PittingCorriosionPlate
+
+      In this directory, scripting is used to model pitting corrosion on a plate. The written code can randomly (size and number) model cylindrical or conical pits on rectangular plates.
       
+      ![Example](https://raw.githubusercontent.com/m-aryayi/Abaqus-Projects/main/PittingCorriosionPlate/Example.PNG)
+      
+       <hr>
+
 	- ZhouEt_al2017
 
       In this directory, the USDFLD subroutine has been used to simulate the below paper. The VUSDFLD subroutine is available for future simulation development in Abaqus/Explicit. If you want to use this project in a different Abaqus version, download the file and run it as below in the terminal:   
