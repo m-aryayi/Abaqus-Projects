@@ -1,0 +1,287 @@
+# Save by mammad on 2022_04_17-23.17.40; build 2019 2018_09_24-22.11.51 157541
+from abaqus import *
+upgradeMdb('C:/Users/mammad/Desktop/New folder (2)/test-6.14-2.cae', 
+    'C:/Users/mammad/Desktop/New folder (2)/test.cae')
+# Save by mammad on 2022_04_17-23.17.40; build 2019 2018_09_24-22.11.51 157541
+from part import *
+from material import *
+from section import *
+from optimization import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+del mdb.models['Model-4']
+del mdb.models['Model-1']
+del mdb.models['Model-3']
+del mdb.jobs['Job-0']
+del mdb.jobs['Job-1']
+del mdb.jobs['Job-2']
+del mdb.jobs['Job-3']
+del mdb.jobs['Job-4']
+del mdb.jobs['Job-5']
+del mdb.jobs['Job-valid2']
+del mdb.jobs['Job3-0']
+del mdb.jobs['Job3-500a']
+del mdb.jobs['Job3-500b']
+del mdb.jobs['Job3-750a']
+del mdb.jobs['Job3-750b']
+del mdb.jobs['Job3-1000a']
+del mdb.jobs['Job3-1000b']
+del mdb.jobs['Job4']
+del mdb.jobs['Job4-n500']
+del mdb.jobs['Job4-n750']
+del mdb.jobs['Job4-n1000']
+# Save by mammad on 2022_04_17-23.18.06; build 2019 2018_09_24-22.11.51 157541
+from part import *
+from material import *
+from section import *
+from optimization import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+del mdb.models['Model-Valid'].materials['mig']
+del mdb.models['Model-Valid'].materials['n500']
+del mdb.models['Model-Valid'].materials['n750']
+del mdb.models['Model-Valid'].materials['n1000']
+mdb.models['Model-Valid'].rootAssembly.unlock()
+mdb.models['Model-Valid'].Part(name='Part-1-failed', objectToCopy=
+    mdb.models['Model-Valid'].parts['Part-1'])
+mdb.models['Model-Valid'].parts['Part-1-failed'].Unlock(reportWarnings=False)
+del mdb.models['Model-Valid'].parts['Part-1']
+mdb.models['Model-Valid'].parts.changeKey(fromName='Part-1-failed', toName=
+    'Part-1')
+mdb.models['Model-Valid'].rootAssembly.regenerate()
+del mdb.models['Model-Valid'].sections['Section-1']
+mdb.models['Model-Valid'].sections.changeKey(fromName='Section-2', toName=
+    'Section-1')
+mdb.models['Model-Valid'].parts['Part-1'].sectionAssignments[0].setValues(
+    sectionName='Section-1')
+mdb.models['Model-Valid'].loads['Load-2'].resume()
+mdb.models['Model-Valid'].loads['Load-2'].suppress()
+del mdb.models['Model-Valid'].loads['Load-2']
+mdb.models['Model-Valid'].parts['Part-1'].deleteMesh(regions=
+    mdb.models['Model-Valid'].parts['Part-1'].cells.getSequenceFromMask((
+    '[#1 ]', ), ))
+mdb.models['Model-Valid'].parts['Part-1'].setMeshControls(algorithm=MEDIAL_AXIS
+    , elemShape=HEX, regions=
+    mdb.models['Model-Valid'].parts['Part-1'].cells.getSequenceFromMask((
+    '[#1 ]', ), ), technique=SWEEP)
+mdb.models['Model-Valid'].parts['Part-1'].setElementType(elemTypes=(ElemType(
+    elemCode=C3D8R, elemLibrary=STANDARD), ElemType(elemCode=C3D6, 
+    elemLibrary=STANDARD), ElemType(elemCode=C3D4, elemLibrary=STANDARD)), 
+    regions=(
+    mdb.models['Model-Valid'].parts['Part-1'].cells.getSequenceFromMask((
+    '[#1 ]', ), ), ))
+mdb.models['Model-Valid'].parts['Part-1'].generateMesh()
+mdb.models['Model-Valid'].rootAssembly.regenerate()
+mdb.jobs['Job-valid'].submit(consistencyChecking=OFF)
+mdb.jobs['Job-valid']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'DESKTOP-MESBJLV', 'handle': 0, 'jobName': 'Job-valid'})
+mdb.jobs['Job-valid']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'NODE SET ASSEMBLY__PICKEDSET834 HAS NO MEMBERS AND WILL BE IGNORED.  NODES DEFINED IN THIS SET MAY HAVE BEEN DELETED BECAUSE THEY WERE NOT CONNECTED TO ANY ELEMENTS.', 
+    'jobName': 'Job-valid'})
+mdb.jobs['Job-valid']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'STRAIN OUTPUT REQUEST LE IS NOT VALID FOR SOME ELEMENTS IN THIS ANALYSIS. THIS REQUEST IS SWITCHED TO THE STRAIN MEASURE, E.', 
+    'jobName': 'Job-valid'})
+mdb.jobs['Job-valid']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'STRAIN OUTPUT REQUEST LE IS NOT VALID FOR SOME ELEMENTS IN THIS ANALYSIS. THIS REQUEST IS SWITCHED TO THE STRAIN MEASURE, E.', 
+    'jobName': 'Job-valid'})
+mdb.jobs['Job-valid']._Message(ODB_FILE, {'phase': BATCHPRE_PHASE, 
+    'file': 'C:\\Users\\mammad\\Desktop\\New folder (2)\\Job-valid.odb', 
+    'jobName': 'Job-valid'})
+mdb.jobs['Job-valid']._Message(COMPLETED, {'phase': BATCHPRE_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'Job-valid'})
+mdb.jobs['Job-valid']._Message(STARTED, {'phase': STANDARD_PHASE, 
+    'clientHost': 'DESKTOP-MESBJLV', 'handle': 2872, 'jobName': 'Job-valid'})
+mdb.jobs['Job-valid']._Message(STEP, {'phase': STANDARD_PHASE, 'stepId': 1, 
+    'jobName': 'Job-valid'})
+mdb.jobs['Job-valid']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 0, 'jobName': 'Job-valid'})
+mdb.jobs['Job-valid']._Message(MEMORY_ESTIMATE, {'phase': STANDARD_PHASE, 
+    'jobName': 'Job-valid', 'memory': 410.0})
+mdb.jobs['Job-valid']._Message(PHYSICAL_MEMORY, {'phase': STANDARD_PHASE, 
+    'physical_memory': 8094.0, 'jobName': 'Job-valid'})
+mdb.jobs['Job-valid']._Message(MINIMUM_MEMORY, {'minimum_memory': 65.0, 
+    'phase': STANDARD_PHASE, 'jobName': 'Job-valid'})
+mdb.jobs['Job-valid']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 1, 'jobName': 'Job-valid'})
+mdb.jobs['Job-valid']._Message(STATUS, {'totalTime': 1.0, 'attempts': 1, 
+    'timeIncrement': 1.0, 'increment': 1, 'stepTime': 1.0, 'step': 1, 
+    'jobName': 'Job-valid', 'severe': 0, 'iterations': 1, 
+    'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Job-valid']._Message(END_STEP, {'phase': STANDARD_PHASE, 'stepId': 1, 
+    'jobName': 'Job-valid'})
+mdb.jobs['Job-valid']._Message(STEP, {'phase': STANDARD_PHASE, 'stepId': 2, 
+    'jobName': 'Job-valid'})
+mdb.jobs['Job-valid']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 1, 
+    'frame': 0, 'jobName': 'Job-valid'})
+mdb.jobs['Job-valid']._Message(MEMORY_ESTIMATE, {'phase': STANDARD_PHASE, 
+    'jobName': 'Job-valid', 'memory': 410.0})
+mdb.jobs['Job-valid']._Message(PHYSICAL_MEMORY, {'phase': STANDARD_PHASE, 
+    'physical_memory': 8094.0, 'jobName': 'Job-valid'})
+mdb.jobs['Job-valid']._Message(MINIMUM_MEMORY, {'minimum_memory': 65.0, 
+    'phase': STANDARD_PHASE, 'jobName': 'Job-valid'})
+mdb.jobs['Job-valid']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 1, 
+    'frame': 1, 'jobName': 'Job-valid'})
+mdb.jobs['Job-valid']._Message(STATUS, {'totalTime': 2.0, 'attempts': 1, 
+    'timeIncrement': 1.0, 'increment': 1, 'stepTime': 1.0, 'step': 2, 
+    'jobName': 'Job-valid', 'severe': 0, 'iterations': 1, 
+    'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Job-valid']._Message(END_STEP, {'phase': STANDARD_PHASE, 'stepId': 2, 
+    'jobName': 'Job-valid'})
+mdb.jobs['Job-valid']._Message(COMPLETED, {'phase': STANDARD_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'Job-valid'})
+mdb.jobs['Job-valid']._Message(JOB_COMPLETED, {
+    'time': 'Sun Apr 17 23:47:25 2022', 'jobName': 'Job-valid'})
+# Save by mammad on 2022_04_17-23.49.44; build 2019 2018_09_24-22.11.51 157541
+from part import *
+from material import *
+from section import *
+from optimization import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.jobs['Job-valid'].submit(consistencyChecking=OFF)
+mdb.jobs['Job-valid']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'DESKTOP-MESBJLV', 'handle': 0, 'jobName': 'Job-valid'})
+mdb.jobs['Job-valid']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'NODE SET ASSEMBLY__PICKEDSET834 HAS NO MEMBERS AND WILL BE IGNORED.  NODES DEFINED IN THIS SET MAY HAVE BEEN DELETED BECAUSE THEY WERE NOT CONNECTED TO ANY ELEMENTS.', 
+    'jobName': 'Job-valid'})
+mdb.jobs['Job-valid']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'STRAIN OUTPUT REQUEST LE IS NOT VALID FOR SOME ELEMENTS IN THIS ANALYSIS. THIS REQUEST IS SWITCHED TO THE STRAIN MEASURE, E.', 
+    'jobName': 'Job-valid'})
+mdb.jobs['Job-valid']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'STRAIN OUTPUT REQUEST LE IS NOT VALID FOR SOME ELEMENTS IN THIS ANALYSIS. THIS REQUEST IS SWITCHED TO THE STRAIN MEASURE, E.', 
+    'jobName': 'Job-valid'})
+mdb.jobs['Job-valid']._Message(ODB_FILE, {'phase': BATCHPRE_PHASE, 
+    'file': 'C:\\Users\\mammad\\Desktop\\New folder\\Job-valid.odb', 
+    'jobName': 'Job-valid'})
+mdb.jobs['Job-valid']._Message(COMPLETED, {'phase': BATCHPRE_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'Job-valid'})
+mdb.jobs['Job-valid']._Message(STARTED, {'phase': STANDARD_PHASE, 
+    'clientHost': 'DESKTOP-MESBJLV', 'handle': 5660, 'jobName': 'Job-valid'})
+mdb.jobs['Job-valid']._Message(STEP, {'phase': STANDARD_PHASE, 'stepId': 1, 
+    'jobName': 'Job-valid'})
+mdb.jobs['Job-valid']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 0, 'jobName': 'Job-valid'})
+mdb.jobs['Job-valid']._Message(MEMORY_ESTIMATE, {'phase': STANDARD_PHASE, 
+    'jobName': 'Job-valid', 'memory': 410.0})
+mdb.jobs['Job-valid']._Message(PHYSICAL_MEMORY, {'phase': STANDARD_PHASE, 
+    'physical_memory': 8094.0, 'jobName': 'Job-valid'})
+mdb.jobs['Job-valid']._Message(MINIMUM_MEMORY, {'minimum_memory': 65.0, 
+    'phase': STANDARD_PHASE, 'jobName': 'Job-valid'})
+mdb.jobs['Job-valid']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 1, 'jobName': 'Job-valid'})
+mdb.jobs['Job-valid']._Message(STATUS, {'totalTime': 1.0, 'attempts': 1, 
+    'timeIncrement': 1.0, 'increment': 1, 'stepTime': 1.0, 'step': 1, 
+    'jobName': 'Job-valid', 'severe': 0, 'iterations': 1, 
+    'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Job-valid']._Message(END_STEP, {'phase': STANDARD_PHASE, 'stepId': 1, 
+    'jobName': 'Job-valid'})
+mdb.jobs['Job-valid']._Message(STEP, {'phase': STANDARD_PHASE, 'stepId': 2, 
+    'jobName': 'Job-valid'})
+mdb.jobs['Job-valid']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 1, 
+    'frame': 0, 'jobName': 'Job-valid'})
+mdb.jobs['Job-valid']._Message(MEMORY_ESTIMATE, {'phase': STANDARD_PHASE, 
+    'jobName': 'Job-valid', 'memory': 410.0})
+mdb.jobs['Job-valid']._Message(PHYSICAL_MEMORY, {'phase': STANDARD_PHASE, 
+    'physical_memory': 8094.0, 'jobName': 'Job-valid'})
+mdb.jobs['Job-valid']._Message(MINIMUM_MEMORY, {'minimum_memory': 65.0, 
+    'phase': STANDARD_PHASE, 'jobName': 'Job-valid'})
+mdb.jobs['Job-valid']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 1, 
+    'frame': 1, 'jobName': 'Job-valid'})
+mdb.jobs['Job-valid']._Message(STATUS, {'totalTime': 2.0, 'attempts': 1, 
+    'timeIncrement': 1.0, 'increment': 1, 'stepTime': 1.0, 'step': 2, 
+    'jobName': 'Job-valid', 'severe': 0, 'iterations': 1, 
+    'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Job-valid']._Message(END_STEP, {'phase': STANDARD_PHASE, 'stepId': 2, 
+    'jobName': 'Job-valid'})
+mdb.jobs['Job-valid']._Message(COMPLETED, {'phase': STANDARD_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'Job-valid'})
+mdb.jobs['Job-valid']._Message(JOB_COMPLETED, {
+    'time': 'Mon Apr 18 06:00:18 2022', 'jobName': 'Job-valid'})
+del mdb.jobs['Job-valid']
+mdb.Job(atTime=None, contactPrint=OFF, description='', echoPrint=OFF, 
+    explicitPrecision=SINGLE, getMemoryFromAnalysis=True, historyPrint=OFF, 
+    memory=90, memoryUnits=PERCENTAGE, model='Model-Valid', modelPrint=OFF, 
+    multiprocessingMode=DEFAULT, name='Job-1', nodalOutputPrecision=SINGLE, 
+    numCpus=1, numGPUs=0, queue=None, resultsFormat=ODB, scratch='', type=
+    ANALYSIS, userSubroutine='', waitHours=0, waitMinutes=0)
+mdb.jobs['Job-1'].submit(consistencyChecking=OFF)
+mdb.jobs['Job-1']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'DESKTOP-MESBJLV', 'handle': 0, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'NODE SET ASSEMBLY__PICKEDSET834 HAS NO MEMBERS AND WILL BE IGNORED.  NODES DEFINED IN THIS SET MAY HAVE BEEN DELETED BECAUSE THEY WERE NOT CONNECTED TO ANY ELEMENTS.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'STRAIN OUTPUT REQUEST LE IS NOT VALID FOR SOME ELEMENTS IN THIS ANALYSIS. THIS REQUEST IS SWITCHED TO THE STRAIN MEASURE, E.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'STRAIN OUTPUT REQUEST LE IS NOT VALID FOR SOME ELEMENTS IN THIS ANALYSIS. THIS REQUEST IS SWITCHED TO THE STRAIN MEASURE, E.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FILE, {'phase': BATCHPRE_PHASE, 
+    'file': 'C:\\Users\\mammad\\Desktop\\New folder\\Job-1.odb', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(COMPLETED, {'phase': BATCHPRE_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STARTED, {'phase': STANDARD_PHASE, 
+    'clientHost': 'DESKTOP-MESBJLV', 'handle': 5480, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STEP, {'phase': STANDARD_PHASE, 'stepId': 1, 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 0, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(MEMORY_ESTIMATE, {'phase': STANDARD_PHASE, 
+    'jobName': 'Job-1', 'memory': 410.0})
+mdb.jobs['Job-1']._Message(PHYSICAL_MEMORY, {'phase': STANDARD_PHASE, 
+    'physical_memory': 8094.0, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(MINIMUM_MEMORY, {'minimum_memory': 65.0, 
+    'phase': STANDARD_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 1, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 1.0, 'attempts': 1, 
+    'timeIncrement': 1.0, 'increment': 1, 'stepTime': 1.0, 'step': 1, 
+    'jobName': 'Job-1', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Job-1']._Message(END_STEP, {'phase': STANDARD_PHASE, 'stepId': 1, 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STEP, {'phase': STANDARD_PHASE, 'stepId': 2, 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 1, 
+    'frame': 0, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(MEMORY_ESTIMATE, {'phase': STANDARD_PHASE, 
+    'jobName': 'Job-1', 'memory': 410.0})
+mdb.jobs['Job-1']._Message(PHYSICAL_MEMORY, {'phase': STANDARD_PHASE, 
+    'physical_memory': 8094.0, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(MINIMUM_MEMORY, {'minimum_memory': 65.0, 
+    'phase': STANDARD_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 1, 
+    'frame': 1, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 2.0, 'attempts': 1, 
+    'timeIncrement': 1.0, 'increment': 1, 'stepTime': 1.0, 'step': 2, 
+    'jobName': 'Job-1', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Job-1']._Message(END_STEP, {'phase': STANDARD_PHASE, 'stepId': 2, 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(COMPLETED, {'phase': STANDARD_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(JOB_COMPLETED, {'time': 'Mon Apr 18 06:26:18 2022', 
+    'jobName': 'Job-1'})
+# Save by mammad on 2022_04_18-06.27.54; build 2019 2018_09_24-22.11.51 157541
