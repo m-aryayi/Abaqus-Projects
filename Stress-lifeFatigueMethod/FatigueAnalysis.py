@@ -107,11 +107,11 @@ for V in S_mField.values:
 ## Fatigue Analysis
 
 NF_Souderberg = []
-NF_modifiedGoudman = []
+NF_modifiedGoodman = []
 NF_Gereber = []
 
 LOGNF_Souderberg = []
-LOGNF_modifiedGoudman = []
+LOGNF_modifiedGoodman = []
 LOGNF_Gereber = []
 
 # # Souderberg method
@@ -131,19 +131,19 @@ LOGNF_Gereber = []
     # j += 1 
 
     
-# Modified Goudman method
+# Modified Goodman method
 j = 0
 while j <= (len(stressSet1.values)-1):
-    S_f_modifiedGoudman = Samax[j]/(1-Smmax[j]/UTS)
-    N_modifiedGoudman = (S_f_modifiedGoudman/a)**(1/b)
-    NF1 = [N_modifiedGoudman]
+    S_f_modifiedGoodman = Samax[j]/(1-Smmax[j]/UTS)
+    N_modifiedGoodman = (S_f_modifiedGoodman/a)**(1/b)
+    NF1 = [N_modifiedGoodman]
     NF2 = tuple (NF1)
-    NF_modifiedGoudman.append (NF2)
+    NF_modifiedGoodman.append (NF2)
     
-    LN_modifiedGoudman = log10(N_modifiedGoudman)
-    LNf1 = [LN_modifiedGoudman]
+    LN_modifiedGoodman = log10(N_modifiedGoodman)
+    LNf1 = [LN_modifiedGoodman]
     LNf2 = tuple (LNf1)
-    LOGNF_modifiedGoudman.append (LNf2)
+    LOGNF_modifiedGoodman.append (LNf2)
     
     j += 1    
     
@@ -177,11 +177,11 @@ elementLabelData = S
     # nField_Souderberg.addData(position = POSITION, instance = p, labels = elementLabelData,
         # data=NF_Souderberg)
 
-if 'Number modified Goudman' not in outputData:
-    nField_modifiedGoudman = frame2.FieldOutput(name = 'Number modified Goudman',
+if 'Number modified Goodman' not in outputData:
+    nField_modifiedGoodman = frame2.FieldOutput(name = 'Number modified Goodman',
         description = 'Calculated Number of Life Cycles of Each Element', type = SCALAR)
-    nField_modifiedGoudman.addData(position = POSITION, instance = p, labels = elementLabelData,
-        data = NF_modifiedGoudman)
+    nField_modifiedGoodman.addData(position = POSITION, instance = p, labels = elementLabelData,
+        data = NF_modifiedGoodman)
 
 if 'Number Gereber' not in outputData:
     nField_Gereber = frame2.FieldOutput(name = 'Number Gereber',
@@ -198,11 +198,11 @@ if 'Number Gereber' not in outputData:
     # lnField_Souderberg.addData(position = POSITION, instance = p, labels = elementLabelData,
         # data = LOGNF_Souderberg)
 
-if 'Log Number modified Goudman' not in outputData:
-    lnField_modifiedGoudman = frame2.FieldOutput(name = 'Log Number modified Goudman',
+if 'Log Number modified Goodman' not in outputData:
+    lnField_modifiedGoodman = frame2.FieldOutput(name = 'Log Number modified Goodman',
         description = 'Calculated LOG Number of Life Cycles of Each Element', type = SCALAR)
-    lnField_modifiedGoudman.addData(position = POSITION, instance = p, labels = elementLabelData,
-        data = LOGNF_modifiedGoudman)
+    lnField_modifiedGoodman.addData(position = POSITION, instance = p, labels = elementLabelData,
+        data = LOGNF_modifiedGoodman)
 
 if 'Log Number Gereber' not in outputData:
     lnField_Gereber = frame2.FieldOutput(name = 'Log Number Gereber',
