@@ -17,8 +17,25 @@ This repository contains a variety of ABAQUS projects codes. In the future, I wi
 	- PittingCorriosionPlate
 
       In this directory, scripting is used to model pitting corrosion on a plate. The written code can randomly (size and number) model cylindrical or conical pits on rectangular plates.
+
+      <p align="center"> 
+      <img src="./PittingCorriosionPlate/Example.PNG">
+      </p>
       
-      ![Example](https://raw.githubusercontent.com/m-aryayi/Abaqus-Projects/main/PittingCorriosionPlate/Example.PNG)
+       <hr>
+       
+	- Stress-lifeFatigueMethod
+
+      In this directory, scripting is used to calculate the number of cycles to fatigue with stress-life (High Cycle) methods (modified Goodman, Gerber, Soderberg). This script adds the contour of the number of cycles to Odb file with the below path.
+
+      <p align="center"> 
+      <img src="./Stress-lifeFatigueMethod/scriptDiagram.PNG">
+      </p>
+
+      
+      An example model and its result, which is validated using the below reference, exist in the directory.
+      
+      <i> Budynas, R. G., & Nisbett, J. K. (2014). Shigley’s Mechanical Engineering Design (10th Edition).</i>
       
        <hr>
 
