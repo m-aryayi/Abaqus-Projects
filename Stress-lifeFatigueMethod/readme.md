@@ -1,7 +1,7 @@
 In this directory, scripting is used to calculate the number of cycles to fatigue with stress-life (High Cycle) methods (modified Goodman, Gerber, Soderberg). This script adds the contour of the number of cycles to Odb file with the below path.
 
 <p align="center"> 
-<img src="./Stress-lifeFatigueMethod/scriptDiagram.PNG">
+<img src="./scriptDiagram.PNG">
 </p>
 
       
