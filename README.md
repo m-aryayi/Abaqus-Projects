@@ -1,6 +1,6 @@
 # Abaqus-Projects
 
-This repository contains a variety of ABAQUS projects codes including _**Fortran subroutines, Python scripts, and Matlab codes**_. In the future, I will add more details about them and their related files.
+This repository contains a variety of ABAQUS projects codes, including _**Fortran subroutines, Python scripts, and Matlab codes**_, which I've worked on. In the future, I will add more details about them and their related files.
 
 
 
