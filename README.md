@@ -1,30 +1,32 @@
 # Abaqus-Projects
 
-This repository contains a variety of ABAQUS projects codes. In the future, I will add more details about them and their related files.
+This repository contains a variety of ABAQUS projects codes including _**Fortran subroutines, Python scripts, and Matlab codes**_. In the future, I will add more details about them and their related files.
 
 
 
 ## 
 - ## List of Projects:
-	- ArmitageAndOyen2017
+	- **ArmitageAndOyen201**
 
-      In this directory, the USDFLD subroutine and MATLAB have been used to simulate the below paper. Matlab file couple with Abaqus and run the input file using the subroutine.
+      In this directory, the _USDFLD_ subroutine and MATLAB have been used to simulate the below paper. Matlab file couple with Abaqus and run the input file using the subroutine.
       
       <a href="https://doi.org/10.1016/j.actbio.2016.12.036"> <i> Armitage, O. E., & Oyen, M. L. (2017). Indentation across interfaces between stiff and compliant tissues.</i> </a>
 
        <hr>
        
-	- DengAndMurakawa2006
+	- **DengAndMurakawa2006**
 
-      In this directory, the FILM and DFLUX subroutine have been used to simulate the welding process in stainless steel pipe, described in the below paper. I will add the Abaqus files as soon as possible.
+      In this directory, the _FILM_ and _DFLUX_ subroutine have been used to simulate the welding process in stainless steel pipe, described in the below paper. I will add the Abaqus files as soon as possible.
       
-      <a href="https://doi.org/10.1016/j.commatsci.2005.07.007"> <i> Deng, D., & Murakawa, H. (2006). Numerical simulation of temperature field and residual stress in multi-pass welds in stainless steel pipe and comparison with experimental measurements.</i> </a>
+      
+      <a href="https://doi.org/10.1016/j.commatsci.2005.07.007"> _Deng, D., & Murakawa, H. (2006). Numerical simulation of temperature field and residual stress in multi-pass welds in stainless steel pipe and comparison with experimental measurements._ </a>
 
        <hr>       
        
-	- PittingCorriosionPlate
+	- **PittingCorriosionPlate**
 
       In this directory, scripting is used to model pitting corrosion on a plate. The written code can randomly (size and number) model cylindrical or conical pits on rectangular plates.
+
 
       <p align="center"> 
       <img src="./PittingCorriosionPlate/Example.PNG">
@@ -32,7 +34,7 @@ This repository contains a variety of ABAQUS projects codes. In the future, I wi
       
        <hr>
        
-	- Stress-lifeFatigueMethod
+	- **Stress-lifeFatigueMethod**
 
       In this directory, scripting is used to calculate the number of cycles to fatigue with stress-life (High Cycle) methods (modified Goodman, Gerber, Soderberg). This script adds the contour of the number of cycles to Odb file with the below path.
 
@@ -47,9 +49,9 @@ This repository contains a variety of ABAQUS projects codes. In the future, I wi
       
        <hr>
 
-	- ZhouEt_al2017
+	- **ZhouEt_al2017**
 
-      In this directory, the USDFLD subroutine has been used to simulate the below paper. The VUSDFLD subroutine is available for future simulation development in Abaqus/Explicit. If you want to use this project in a different Abaqus version, download the file and run it as below in the terminal:   
+      In this directory, the _USDFLD_ subroutine has been used to simulate the below paper. The VUSDFLD subroutine is available for future simulation development in Abaqus/Explicit. If you want to use this project in a different Abaqus version, download the file and run it as below in the terminal:   
 
           abaqus job=Job-Validation input=Job-Validation user=USDFLD_CapModel.for
  	  
