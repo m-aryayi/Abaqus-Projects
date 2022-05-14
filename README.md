@@ -43,7 +43,7 @@ This repository contains a variety of ABAQUS projects codes, including _**Fortra
       </p>
 
       
-      An example model and its result, which is validated using the below reference, exist in the directory.
+      An example model and its result, which is validated using the below reference, exists in the directory.
       
       <i> Budynas, R. G., & Nisbett, J. K. (2014). Shigley’s Mechanical Engineering Design (10th Edition).</i>
       
