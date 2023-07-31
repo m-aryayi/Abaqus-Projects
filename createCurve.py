@@ -392,7 +392,7 @@ runOrNot = getWarningReply('Do you want to run', (YES,NO))
 
 if runOrNot == SymbolicConstant('YES'):
    
-   for i in range(7,numberOfPiez+1):
+   for i in range(1,numberOfPiez+1):
         
         for j in range(1,numberOfPiez+1):
             if abs(j - i)>1e-6:
