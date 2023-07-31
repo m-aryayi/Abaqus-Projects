@@ -454,7 +454,7 @@ if readOrNot == SymbolicConstant('YES'):
                         
                         fileName = 'Exe_' + str(i) + '_Sig_' + str(peizoNumber+1) + ".csv"
                         np.savetxt(fileName , df, delimiter=",") 
-                       
+            odb.close()                            
         except Exception as e:
             #print(e)
             print('File ' + odbName + ' Dont exsist')
