@@ -445,7 +445,7 @@ if readOrNot == SymbolicConstant('YES'):
                         U2 = data2[:,1]
                         theta = piezCenterTheta[peizoNumber]
                         Ur = np.sqrt(U1*U1 + U2*U2)
-                        Un = U1*np.cos(theta)-U2*np.sin(theta)
+                        Un = U1*np.cos(theta)+U2*np.sin(theta)
                         time = np.atleast_2d(time).T
                         Ur = np.atleast_2d(Ur).T
                         Un = np.atleast_2d(Un).T
