@@ -22,7 +22,7 @@ totalCurveLength = outerRadius*angelOfCurveRa
 
 # Hole
 radiusOfHole = 0.0005 #m
-distanceFromSurface = 0.004 #m
+distanceFromSurface = 0.007 #m
 
 centerOfHole = (outerRadius-distanceFromSurface, 0.0)
 pointOfHole = (outerRadius-distanceFromSurface+radiusOfHole, 0.0)
@@ -77,8 +77,8 @@ formatted_x = "{:.0e}".format(stableTimeIncrement)
 leadingZero = (float('1'+formatted_x[formatted_x.find('e'):]))
 stableTimeIncrement = math.floor(stableTimeIncrement/leadingZero)*leadingZero
 
-
-timeForTravelingWave = (thicknessOfCurve*2/mat1WaveSpeedLon + excitionTime)*1.5
+stepTimeCoef = 1.5
+timeForTravelingWave = (thicknessOfCurve*2/mat1WaveSpeedLon + excitionTime)*stepTimeCoef
 # round step time
 formatted_x = "{:.0e}".format(timeForTravelingWave)
 leadingZero = (float('1'+formatted_x[formatted_x.find('e'):]))
@@ -86,12 +86,11 @@ stepTime = math.ceil(timeForTravelingWave/leadingZero)*leadingZero
 
 
 
-# Model
+# Model Data
 partName = 'Part-1'
 modelName = mdb.models.keys()[0]
 model = mdb.models[modelName]
-
-
+loadMagnitude = 2000.0
 
 
 
@@ -345,9 +344,18 @@ model.boundaryConditions['BC-Exc'].suppress()
 for i in range(1,numberOfPiez+1):
     region = a.instances['Part-1-1'].surfaces['Surf-'+str(i)]
     model.Pressure(name='Pressure-'+str(i), createStepName='Step-1', 
-        region=region, distributionType=UNIFORM, field='', magnitude=2000.0, 
+        region=region, distributionType=UNIFORM, field='', magnitude=loadMagnitude, 
         amplitude='Amp-1')
     #mdb.models['Model-1'].loads['Pressure-'+str(i)].suppress()
+
+# # Traction
+## for i in range(1,numberOfPiez+1):
+##     region = a.instances['Part-1-1'].surfaces['Surf-'+str(i)]
+##     model.SurfaceTraction(name='Traction-'+str(i), createStepName='Step-1', 
+##         region=region, magnitude=loadMagnitude, amplitude='Amp-1', 
+##         directionVector=(piezCenterPoints[i-1], (0.0, 0.0, 0.0)), 
+##         distributionType=UNIFORM, field='', localCsys=None, traction=GENERAL)
+
 
 
 
@@ -396,9 +404,11 @@ if runOrNot == SymbolicConstant('YES'):
         
         for j in range(1,numberOfPiez+1):
             if abs(j - i)>1e-6:
-                mdb.models['Model-1'].loads['Pressure-'+str(j)].suppress()
+                model.loads['Pressure-'+str(j)].suppress()
+                # model.loads['Traction-'+str(j)].suppress()
             else:
-                mdb.models['Model-1'].loads['Pressure-'+str(j)].resume()
+                model.loads['Pressure-'+str(j)].resume()
+                # model.loads['Traction-'+str(j)].resume()
                 
 
         jobName = 'JobPhaseArray-'+str(i)
@@ -407,8 +417,8 @@ if runOrNot == SymbolicConstant('YES'):
             memory=90, memoryUnits=PERCENTAGE, explicitPrecision=DOUBLE, 
             nodalOutputPrecision=FULL, echoPrint=OFF, modelPrint=OFF, contactPrint=OFF, 
             historyPrint=OFF, userSubroutine='', scratch='', resultsFormat=ODB, 
-            parallelizationMethodExplicit=DOMAIN, numDomains=2, 
-            activateLoadBalancing=False, multiprocessingMode=DEFAULT, numCpus=2)
+            parallelizationMethodExplicit=DOMAIN, numDomains=3, 
+            activateLoadBalancing=False, multiprocessingMode=DEFAULT, numCpus=3)
         mdb.jobs[jobName].submit(consistencyChecking=OFF)
         mdb.jobs[jobName].waitForCompletion()
 
@@ -454,7 +464,7 @@ if readOrNot == SymbolicConstant('YES'):
                         
                         fileName = 'Exe_' + str(i) + '_Sig_' + str(peizoNumber+1) + ".csv"
                         np.savetxt(fileName , df, delimiter=",") 
-            odb.close()                            
+            odb.close()     
         except Exception as e:
             #print(e)
             print('File ' + odbName + ' Dont exsist')
