@@ -1,12 +1,10 @@
 import numpy as np
-import matplotlib.pyplot as plt
 
 
 
 def distancePolar(r1,r2,theta1,theta2):
     d2 =  r1**2 + r2**2 - 2*r1*r2*np.cos(theta1-theta2)
     return np.sqrt(d2)
-
 
 
 
@@ -20,14 +18,6 @@ thicknessOfCurve = 0.01 #m
 angelOfCurveRa = angelOfCurve*np.pi/180
 innerRadius = outerRadius - thicknessOfCurve
 # totalCurveLength = outerRadius*angelOfCurveRa
-
-
-# # Hole
-# radiusOfHole = 0.001 #m
-# distanceFromSurface = 0.004 #m
-
-# centerOfHole = (outerRadius-distanceFromSurface, 0.0)
-# pointOfHole = (outerRadius-distanceFromSurface+radiusOfHole, 0.0)
 
 
 # Piezoelectric Geometry
@@ -54,30 +44,16 @@ mat1Nu = 0.25
 mat1Density = 2007
 
 
-# Cacluate mesh size, time increment, run time
+# Cacluate run time
 mat1G = mat1E/(2*(1+mat1Nu))
 mat1Lambda = mat1E*mat1Nu/((1+mat1Nu)*(1-2*mat1Nu))
 
 mat1WaveSpeedTra = np.sqrt(mat1G/mat1Density)
 mat1WaveSpeedLon = np.sqrt((mat1Lambda+2*mat1G)/mat1Density)
 
-# mat1WaveLength = mat1WaveSpeedTra / frequncyOfPiez
-# mat1maximumMeshSize = mat1WaveLength/10
 
-# # round mesh size
-# formatted_x = "{:.0e}".format(mat1maximumMeshSize)
-# leadingZero = (float('1'+formatted_x[formatted_x.find('e'):]))
-# meshSize = np.floor(mat1maximumMeshSize/leadingZero)*leadingZero
-
-
-# stableTimeIncrement = meshSize/mat1WaveSpeedLon
-# # round stable time
-# formatted_x = "{:.0e}".format(stableTimeIncrement)
-# leadingZero = (float('1'+formatted_x[formatted_x.find('e'):]))
-# stableTimeIncrement = np.floor(stableTimeIncrement/leadingZero)*leadingZero
-
-
-timeForTravelingWave = thicknessOfCurve*2/mat1WaveSpeedLon + excitionTime
+stepTimeCoef = 1.5
+timeForTravelingWave = (thicknessOfCurve*2/mat1WaveSpeedLon + excitionTime)*stepTimeCoef
 # round step time
 formatted_x = "{:.0e}".format(timeForTravelingWave)
 leadingZero = (float('1'+formatted_x[formatted_x.find('e'):]))
@@ -133,6 +109,7 @@ theta , r = np.meshgrid(thetaVec, radiuVec)
 z = np.zeros(theta.shape)
 
 for piezoEx in range(numberOfPiez):
+    print('Run: ' + str(piezoEx+1))
     for piezoSig in range(numberOfPiez):
 
         rPiezo = outerRadius
@@ -164,39 +141,37 @@ for piezoEx in range(numberOfPiez):
                     amp = np.abs(signal[index,1])
                 else:
                     # amp = (signal[index,1]+signal[index-1,1])/2
-                    amp = (timeTotal-signal[index-1,0])/(signal[index,0]-signal[index-1,0]) * \
-                          (np.abs(signal[index,1])-np.abs(signal[index-1,1])) + np.abs(signal[index-1,1])
+                    kk =(timeTotal-signal[index-1,0])/(signal[index,0]-signal[index-1,0])
+                    amp =  kk * (np.abs(signal[index,1])-np.abs(signal[index-1,1])) + np.abs(signal[index-1,1])
                 
                 z[i,j] = z[i,j] + amp
 
 
-
-# #-- Generate Data -----------------------------------------
-# # Using linspace so that the endpoint of 360 is included...
-# azimuths = np.radians(np.linspace(-angelOfCurve/2, angelOfCurve/2, 20))
-# zeniths = np.arange(innerRadius, outerRadius, 10)
-
-
-# #-- Generate Data -----------------------------------------
-# # Using linspace so that the endpoint of 360 is included...
-# azimuths = np.radians(np.linspace(-angelOfCurve/2, angelOfCurve/2, 20))
-# zeniths = np.arange(50, 70, 10)
-
-
-# r, theta = np.meshgrid(zeniths, azimuths)
-# values = np.random.random((azimuths.size, zeniths.size))
+import matplotlib.pyplot as plt
 values = z
-#-- Plot... ------------------------------------------------
 fig, ax = plt.subplots()
-a = ax.contourf(theta, r, values)
-# ax.plot(0, 40, 'ko')
-
-# Set custom axis limits
-# ax.set_ylim(20, 70)
-# ax.set_theta_offset(np.pi/2)
-# # ax.set_theta_direction(-1)
+a = ax.contourf(theta, r, z)
 
 fig.colorbar(a)
+plt.savefig('foo.png', bbox_inches='tight')
 plt.show()
 
 
+
+
+
+# #-- Plot Ploar... -------------------------------------------
+# fig, ax = plt.subplots(subplot_kw=dict(projection='polar'))
+# ax.contourf(theta, r, values)
+
+# # ax.plot(0, outerRadius/2, 'ko')
+
+# # Set custom axis limits
+# ax.set_ylim(0.28, outerRadius)
+# # ax.set_theta_offset(np.pi/2)
+# # ax.set_theta_direction(-1)
+# # Set the theta limits
+# ax.set_thetamin(-angelOfCurve/2)
+# ax.set_thetamax(angelOfCurve/2)
+
+# plt.show()
