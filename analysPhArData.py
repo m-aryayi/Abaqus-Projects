@@ -101,8 +101,8 @@ effectiveOutRad = outerRadius - deadZone
 # thetaVec = np.radians(np.linspace(-angelOfCurve*3, 
 #                                   angelOfCurve*3, 400))
 thetaVec = np.linspace(-totalPiezCurveAngle*1, 
-                        totalPiezCurveAngle*1, 500)
-radiuVec = np.linspace(innerRadius, effectiveOutRad, 500)
+                        totalPiezCurveAngle*1, 100)
+radiuVec = np.linspace(innerRadius, effectiveOutRad, 100)
 theta , r = np.meshgrid(thetaVec, radiuVec)
 
 
@@ -147,15 +147,19 @@ for piezoEx in range(numberOfPiez):
                 z[i,j] = z[i,j] + amp
 
 
-import matplotlib.pyplot as plt
-values = z
-fig, ax = plt.subplots()
-a = ax.contourf(theta, r, z)
+np.savetxt('aT.csv' , theta, delimiter=",")
+np.savetxt('aR.csv' , r, delimiter=",")
+np.savetxt('aZ.csv' , z, delimiter=",")
 
-fig.colorbar(a)
-plt.savefig('foo.png', bbox_inches='tight')
-plt.show()
 
+# import matplotlib.pyplot as plt
+# values = z
+# fig, ax = plt.subplots()
+# a = ax.contourf(theta, r, z)
+
+# fig.colorbar(a)
+# plt.savefig('foo.png', bbox_inches='tight')
+# plt.show()
 
 
 
