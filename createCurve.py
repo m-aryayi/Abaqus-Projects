@@ -21,8 +21,8 @@ totalCurveLength = outerRadius*angelOfCurveRa
 
 
 # Hole
-radiusOfHole = 0.0005 #m
-distanceFromSurface = 0.007 #m
+radiusOfHole = 0.002 #m
+distanceFromSurface = 0.005 #m
 
 centerOfHole = (outerRadius-distanceFromSurface, 0.0)
 pointOfHole = (outerRadius-distanceFromSurface+radiusOfHole, 0.0)
@@ -90,8 +90,8 @@ stepTime = math.ceil(timeForTravelingWave/leadingZero)*leadingZero
 partName = 'Part-1'
 modelName = mdb.models.keys()[0]
 model = mdb.models[modelName]
-loadMagnitude = 2000.0
-
+loadMagnitude = 10000.0
+dispMagnitude = -1e-6
 
 
 #######################
@@ -331,22 +331,29 @@ model.TabularAmplitude(name='Amp-1', timeSpan=STEP,
     smooth=SOLVER_DEFAULT, data=ampTable)
 
 
-# Displacement
-region = a.instances['Part-1-1'].sets['Set-1']
-datum = a.datums[a.features['Datum csys-R'].id]
-model.DisplacementBC(name='BC-Exc', createStepName='Step-1', 
-    region=region, u1=-1.0, u2=UNSET, ur3=UNSET, amplitude='Amp-1', fixed=OFF, 
-    distributionType=UNIFORM, fieldName='', localCsys=datum)
-model.boundaryConditions['BC-Exc'].suppress()
+### Displacement
+## for i in range(1,numberOfPiez+1):
+##     region = a.instances['Part-1-1'].sets['Set-'+str(i)]
+##     datum = a.datums[a.features['Datum csys-R'].id]
+##     model.DisplacementBC(name='BC-Exc-'+str(i), createStepName='Step-1', 
+##        region=region, u1=dispMagnitude, u2=UNSET, ur3=UNSET, amplitude='Amp-1', fixed=OFF, 
+##        distributionType=UNIFORM, fieldName='', localCsys=datum)
+
+## region = a.instances['Part-1-1'].sets['Set-1']
+## datum = a.datums[a.features['Datum csys-R'].id]
+## model.DisplacementBC(name='BC-Exc', createStepName='Step-1', 
+##     region=region, u1=-1.0, u2=UNSET, ur3=UNSET, amplitude='Amp-1', fixed=OFF, 
+##     distributionType=UNIFORM, fieldName='', localCsys=datum)
+## model.boundaryConditions['BC-Exc'].suppress()
 
 
 # Pressure
 for i in range(1,numberOfPiez+1):
-    region = a.instances['Part-1-1'].surfaces['Surf-'+str(i)]
-    model.Pressure(name='Pressure-'+str(i), createStepName='Step-1', 
-        region=region, distributionType=UNIFORM, field='', magnitude=loadMagnitude, 
-        amplitude='Amp-1')
-    #mdb.models['Model-1'].loads['Pressure-'+str(i)].suppress()
+   region = a.instances['Part-1-1'].surfaces['Surf-'+str(i)]
+   model.Pressure(name='Pressure-'+str(i), createStepName='Step-1', 
+       region=region, distributionType=UNIFORM, field='', magnitude=loadMagnitude, 
+       amplitude='Amp-1')
+   #mdb.models['Model-1'].loads['Pressure-'+str(i)].suppress()
 
 # # Traction
 ## for i in range(1,numberOfPiez+1):
@@ -404,9 +411,11 @@ if runOrNot == SymbolicConstant('YES'):
         
         for j in range(1,numberOfPiez+1):
             if abs(j - i)>1e-6:
+                # model.boundaryConditions['BC-Exc-'+str(i)].suppress()
                 model.loads['Pressure-'+str(j)].suppress()
                 # model.loads['Traction-'+str(j)].suppress()
             else:
+                # model.boundaryConditions['BC-Exc-'+str(i)].resume()
                 model.loads['Pressure-'+str(j)].resume()
                 # model.loads['Traction-'+str(j)].resume()
                 
