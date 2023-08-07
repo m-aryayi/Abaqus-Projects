@@ -339,13 +339,6 @@ model.TabularAmplitude(name='Amp-1', timeSpan=STEP,
 ##        region=region, u1=dispMagnitude, u2=UNSET, ur3=UNSET, amplitude='Amp-1', fixed=OFF, 
 ##        distributionType=UNIFORM, fieldName='', localCsys=datum)
 
-## region = a.instances['Part-1-1'].sets['Set-1']
-## datum = a.datums[a.features['Datum csys-R'].id]
-## model.DisplacementBC(name='BC-Exc', createStepName='Step-1', 
-##     region=region, u1=-1.0, u2=UNSET, ur3=UNSET, amplitude='Amp-1', fixed=OFF, 
-##     distributionType=UNIFORM, fieldName='', localCsys=datum)
-## model.boundaryConditions['BC-Exc'].suppress()
-
 
 # Pressure
 for i in range(1,numberOfPiez+1):
