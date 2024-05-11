@@ -13,28 +13,28 @@ shapeOfPits = getWarningReply('Cylindrical Pits (Yes) Or Conical Pits (No)?', (Y
 
 if randomNumber == SymbolicConstant('NO'):
 
-    field=( ('Tickness of Part (y-direction): ' , '0.005'), ('Width of Part (z-direction): ' , '0.1'),
+    field=( ('Thickness of Part (y-direction): ' , '0.005'), ('Width of Part (z-direction): ' , '0.1'),
         ('Length of Part (x-direction): ' , '0.1'), ('Maximum Radius Of Pits: ' , '0.005'), 
         ('Maximum Height Of Pits: ' , '0.001'), ('Number of Pits: ','10'),
         ('Part Name: ' , 'Part-1'), ('Model Name: ' , 'Model-1') )
         
-    tickness, width, length, maximumPitsRadius, maximumPitsHeight, pitsNumber, partName, modelName = getInputs(fields = field)
+    thickness, width, length, maximumPitsRadius, maximumPitsHeight, pitsNumber, partName, modelName = getInputs(fields = field)
 
     pitsNumber = eval(pitsNumber) 
 
 else:
 
-    field=( ('Tickness of Part (y-direction): ' , '0.005'), ('Width of Part (z-direction): ' , '0.1'),
+    field=( ('Thickness of Part (y-direction): ' , '0.005'), ('Width of Part (z-direction): ' , '0.1'),
         ('Length of Part (x-direction): ' , '0.1'), ('Maximum Radius Of Pits: ' , '0.005'), 
         ('Maximum Height Of Pits: ' , '0.001'), ('Maximum Number of Pits: ','100'),
         ('Part Name: ' , 'Part-1'), ('Model Name: ' , 'Model-1') )
         
-    tickness, width, length, maximumPitsRadius, maximumPitsHeight, maximumPitsNumber, partName, modelName = getInputs(fields = field)
+    thickness, width, length, maximumPitsRadius, maximumPitsHeight, maximumPitsNumber, partName, modelName = getInputs(fields = field)
 
     maximumPitsNumber = eval(maximumPitsNumber) 
     pitsNumber = random.randint(1,maximumPitsNumber)
 
-tickness = eval(tickness)
+thickness = eval(thickness)
 width = eval(width)
 length = eval(length)
 
@@ -95,7 +95,7 @@ for ii in range(pitsNumber):
     # Change and translate the position of pit randomly
     XcordOfPit = random.uniform(0,length)
     ZcordOfPit = random.uniform(0,width)  
-    a.translate(instanceList = ('Pit-'+str(ii)+'-1', ), vector = (XcordOfPit, tickness, ZcordOfPit))
+    a.translate(instanceList = ('Pit-'+str(ii)+'-1', ), vector = (XcordOfPit, thickness, ZcordOfPit))
     
     # Cut the pit and make a new part
     try:	
